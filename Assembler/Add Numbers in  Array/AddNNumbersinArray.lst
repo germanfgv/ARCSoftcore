@@ -1,0 +1,31 @@
+(ARCTools Version 2.1.2)
+ HexLoc     DecLoc    MachWord   Label        Instruction                Comment
+                                              .org 2048                  !Comienza el posicionamiento de instrucciones en la dirección 2048 de memoria
+                                              .equ 3000                  !Dirección del arreglo a en memoria
+00000800  0000002048  c200282c                ld [2092], %r1             !%r1 ←length del arreglo a
+00000804  0000002052  c4002830                ld [2096], %r2             !%r2 ← Dirección del arreglo a
+00000808  0000002056  8688c000                andcc %r3, %r0, %r3        !%r3 ←0 .Inicializar el registro acumulador %r3 en cero.
+0000080c  0000002060  80884001  loop:         andcc %r1, %r1, %r0        !Prueba de elementos restantes.(Pasar el valor almacenado en %r1(# de bytes restantes) por la ALU actualizando banderas)
+00000810  0000002064  02800006                be 6                       !Realizar salto a subrutina done para la culminación del algoritmo si el # de bytes restantes es 0.
+00000814  0000002068  82807ffc                addcc %r1, -4, %r1         !Disminuir el # de bytes restantes por 4.
+00000818  0000002072  88804002                addcc %r1, %r2, %r4        !Cálculo de la dirección en memoria del elemento a sumar.
+0000081c  0000002076  ca010000                ld %r4, %r5                !Cargar el elemento a sumar en %r5
+00000820  0000002080  8680c005                addcc %r3, %r5, %r3        !Sumar el elemento seleccionado con el acumulado de la suma.
+00000824  0000002084  10bffffa                ba -6                      !Recomenzar el loop
+00000828  0000002088  81c3e004  done:         jmpl %r15, 4, %r0          !Salto a siguiente rutina almacenada en memoria principal.
+0000082c  0000002092  00000014  length:                                  !Largo del arreglo de números a sumar.
+00000830  0000002096  00000bb8  address:                                 !Dirección de inicio del arreglo. Se posiciona s
+                                              .org a_start               
+00000bb8  0000003000  0000001b  a:                                       
+00000bbc  0000003004  fffffff6                                           
+00000bc0  0000003008  0000002d                                           
+00000bc4  0000003012  ffffffee                                           
+00000bc8  0000003016  00000006                                           
+
+--- Symbol Table ---
+a: 3000
+address: 2096
+done: 2088
+loop: 2060
+a_start: 3000
+length: 2092

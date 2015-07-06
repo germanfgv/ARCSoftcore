@@ -1,0 +1,8 @@
+../system.v
+../rtl/alu.v
+../rtl/multiplexor.v
+../rtl/shiftreg.v
+../rtl/datapath.v
+../rtl/reg.v
+../rtl/controlfibonacci.v
+system_tb.v

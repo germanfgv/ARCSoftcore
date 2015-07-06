@@ -1,0 +1,81 @@
+module controlsuma(
+input clk, fov,fcarry,fneg,fzero,
+output reg [7:0]instreg,instmulta,instalu,instmultb,
+output reg escr1,escr2,escr3,escr0
+);
+
+reg [1:0]rEstado, sEstado;
+parameter [1:0] AssignChannels = 00;
+parameter [1:0] PassingShift   = 01;
+parameter [1:0] SavingData     = 10;
+parameter [1:0] FinalState     = 11;
+
+
+initial
+begin
+	estado=0;
+end
+
+always@(posedge clk)
+begin
+
+if(estado==0)
+begin
+escr0=0;
+escr1=0;
+escr2=0;
+escr3=0;
+instmulta=1;
+instmultb=2;
+instalu=1;
+instreg=0;
+//estado futuro-------------------------------------------
+estado=1;
+
+end
+
+
+else if(estado==1)
+begin
+escr0=0;
+escr1=0;
+escr2=0;
+escr3=0;
+instmulta=1;
+instmultb=2;
+instalu=1;
+instreg=0;
+//estado futuro-------------------------------------------
+estado=3;
+end
+
+else if(estado==2)
+begin
+escr0=1;
+escr1=0;
+escr2=0;
+escr3=0;
+instmulta=1;
+instmultb=2;
+instalu=0;
+instreg=0;
+//estado futuro-------------------------------------------
+estado=4;
+end
+
+if(estado==3)
+begin
+escr0=0;
+escr1=0;
+escr2=0;
+escr3=0;
+instmulta=1;
+instmultb=2;
+instalu=0;
+instreg=0;
+//estado futuro-------------------------------------------
+estado=0;
+end
+
+end
+endmodule

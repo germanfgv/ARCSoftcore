@@ -1,0 +1,29 @@
+(ARCTools Version 2.1.2)
+ HexLoc     DecLoc    MachWord   Label        Instruction                Comment
+00000000  0000000000  00000020  z:                                       
+00000004  0000000004  00000001  one:                                     
+00000008  0000000008  00000002  two:                                     
+0000000c  0000000012  00000003  three:                                   
+00000010  0000000016  ffffffff  minus1:                                  
+00000014  0000000020  7fffffff  almost:                                  
+00000018  0000000024  ffffffff  max:                                     
+                                                                         
+                                              .org 2048                  
+                                              .equ 3000                  
+00000800  0000002048  c2002004                ld [4], %r1                
+00000804  0000002052  c4002008                ld [8], %r2                
+00000808  0000002056  86804002                addcc %r1, %r2, %r3        
+0000080c  0000002060  c6202000                st %r3, [0]                
+00000810  0000002064  7ffffffc                call -4                    
+00000814  0000002068  ffffffff                halt                       
+                                                                         
+
+--- Symbol Table ---
+max: 24
+two: 8
+a_start: 3000
+minus1: 16
+one: 4
+almost: 20
+three: 12
+z: 0

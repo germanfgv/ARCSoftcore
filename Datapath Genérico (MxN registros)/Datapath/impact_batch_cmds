@@ -1,0 +1,5 @@
+setMode -bscan
+setcable -p svf -file system.svf
+addDevice -p 1 -file system.bit
+program -p 1
+quit

@@ -1,0 +1,44 @@
+# ==== IO ====
+# ==== INPUTS ====
+NET "input_wi[0]" LOC = "P17" | IOSTANDARD = LVTTL;
+NET "input_wi[1]" LOC = "P16" | IOSTANDARD = LVTTL;
+NET "input_wi[2]" LOC = "P15" | IOSTANDARD = LVTTL;
+NET "input_wi[3]" LOC = "P12" | IOSTANDARD = LVTTL;
+NET "input_wi[4]" LOC = "P11" | IOSTANDARD = LVTTL;
+NET "input_wi[5]" LOC = "P10" | IOSTANDARD = LVTTL;
+
+NET "input_w2"[0] LOC = "P40" | IOSTANDARD = LVTTL;
+NET "input_w2"[1] LOC = "P36" | IOSTANDARD = LVTTL;
+NET "input_w2"[2] LOC = "P35" | IOSTANDARD = LVTTL;
+NET "input_w2"[3] LOC = "P34" | IOSTANDARD = LVTTL;
+NET "input_w2"[4] LOC = "P33" | IOSTANDARD = LVTTL;
+NET "input_w2"[5] LOC = "P32" | IOSTANDARD = LVTTL;
+
+NET "input_li"[0] LOC = "P30" | IOSTANDARD = LVTTL;
+NET "input_li"[1] LOC = "P26" | IOSTANDARD = LVTTL;
+NET "input_li"[2] LOC = "P25" | IOSTANDARD = LVTTL;
+NET "input_li"[3] LOC = "P23" | IOSTANDARD = LVTTL;
+NET "input_li"[4] LOC = "P22" | IOSTANDARD = LVTTL;
+NET "input_li"[5] LOC = "P18" | IOSTANDARD = LVTTL;
+
+NET "input_l2"[0] LOC = "P60" | IOSTANDARD = LVTTL;
+NET "input_l2"[1] LOC = "P58" | IOSTANDARD = LVTTL;
+NET "input_l2"[2] LOC = "P57" | IOSTANDARD = LVTTL;
+NET "input_l2"[3] LOC = "P53" | IOSTANDARD = LVTTL;
+NET "input_l2"[4] LOC = "P44" | IOSTANDARD = LVTTL;
+NET "input_l2"[5] LOC = "P41" | IOSTANDARD = LVTTL;
+
+
+# ==== OUTPUTS ====
+NET "u"[0] LOC = "P66" | IOSTANDARD = LVTTL;
+NET "u"[1] LOC = "P67" | IOSTANDARD = LVTTL;
+NET "u"[2] LOC = "P68" | IOSTANDARD = LVTTL;
+NET "u"[3] LOC = "P70" | IOSTANDARD = LVTTL;
+
+NET "d"[0] LOC = "P3" | IOSTANDARD = LVTTL;
+NET "d"[1] LOC = "P4" | IOSTANDARD = LVTTL;
+NET "d"[2] LOC = "P5" | IOSTANDARD = LVTTL;
+NET "d"[3] LOC = "P9" | IOSTANDARD = LVTTL;
+
+
+
