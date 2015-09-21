@@ -29,7 +29,7 @@ assign w_ir_addr={1'b1,ir[31:30],ir[24:19],2'b00};
 assign mir=w_mir;
 
 /*Módulos*/
-
+/*Control Store Address Incrementer()*/
 csai csai(
 .actual_addr(w_cs_addr),
 .ack(clk),
@@ -37,7 +37,9 @@ csai csai(
 .next_addr(w_next_addr)
 );
 
-
+/*Control Branch Logic. Realiza la selección de la siguiente
+dirección a seleccionar de la control Store según los 
+bits de condición de la última Microinstrucción.*/
 control_branch_logic cbl(
 .ir13(w_ir13),
 .psr(w_psr),
