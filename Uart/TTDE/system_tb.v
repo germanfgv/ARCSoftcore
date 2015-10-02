@@ -31,10 +31,11 @@ parameter clk_freq = 1000000000 / tck; // Frequenzy in HZ
 //----------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------
-reg        clk_tb;
-reg        rst_tb;
-reg	   w_ack;
-wire       led_tb;
+reg        	clk_tb;
+reg        	rst_tb;
+reg	   	w_ack;
+wire       	led_tb;
+wire	[7:0]   w_data;
 
 //----------------------------------------------------------------------------
 // Device Under Test 
@@ -44,7 +45,10 @@ system #(
 ) dut  (
 	.clk(	clk_tb	),
 	.rst(rst_tb),
-	.ack(w_ack)
+	.denv(w_data),
+	.drec(),
+	.wr(w_wr),
+	.rd(w_rd)
 	
 );
 
@@ -67,20 +71,30 @@ initial begin
 	//$dumpvars(-1,clk_tb,rst_tb,led_tb, dut);
 	
 	//$dumpvars(-1,clk_tb,rst_tb);
-	#0  rst_tb <= 0;
-	#0  w_ack <=0; 
+	#0   rst_tb <= 0;
+	#0   w_wr   <= 0; 
+	#0   w_rd   <= 0; 
 	#80  rst_tb <= 1; 
 	#145 rst_tb <= 0;
-	#200 w_ack <=1;
-	#40 w_ack <=0;
-	#200 w_ack <=1;
-	#40 w_ack <=0;
-	#200 w_ack <=1;
-	#40 w_ack <=0;
-	#200 w_ack <=1;
-	#40 w_ack <=0;
-	#200 w_ack <=1;
-	#40 w_ack <=0;
+	#200 w_data <= 5;
+	#40  w_wr   <= 1;
+	#40  w_wr   <= 0;
+	#200 w_data <= 10;
+	#40  w_wr   <= 1;
+	#40  w_wr   <= 0;
+	#200 w_data <= 15;
+	#40  w_wr   <= 1;
+	#40  w_wr   <= 0;
+	#200 w_data <= 255;
+	#40  w_wr   <= 1;
+	#40  w_wr   <= 0;
+	#200000 w_rd<= 1;
+	#40  w_wr   <= 0;
+	#200000 w_rd<= 1;
+	#40  w_wr   <= 0;
+	#200000 w_rd<= 1;
+	#40  w_wr   <= 0;
+
 	
 	#(tck*5000) $finish;
 end

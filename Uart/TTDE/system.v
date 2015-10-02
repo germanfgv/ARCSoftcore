@@ -24,7 +24,7 @@
 module system
 #(parameter	clk_freq	= 50000000) 
 (
-	input		clk, rst, w_write,w_read, 
+	input		clk, rst, wr,rd, 
 	input   [7:0]   denv,
 	output	[7:0]	drec
 
@@ -43,7 +43,7 @@ module system
     	.clk(clk), 
 	.reset(rst),
     	.rd_uart(1'b0),
-	.wr_uart(w_write), 
+	.wr_uart(wr), 
 	.rx(w_rc),
     	.w_data(w_wdata), //TODO: DECLARAR CABLE, ya no :3 
     	.tx_full(), 
@@ -55,7 +55,7 @@ module system
 	uart uart_rc(
     	.clk(clk), 
 	.reset(rst),
-    	.rd_uart(w_read),
+    	.rd_uart(rd),
 	.wr_uart(1'b0), 
 	.rx(w_tr),
     	.w_data(),
