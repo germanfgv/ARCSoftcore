@@ -1,0 +1,8 @@
+../system.v
+../rtl/uart_tx.v
+../rtl/uart_rx.v
+../rtl/uart.v
+../rtl/counter.v
+../rtl/flag_buf.v
+../rtl/fifo.v
+system_tb.v

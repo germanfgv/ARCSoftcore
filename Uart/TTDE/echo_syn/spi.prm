@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator M.81d
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o /home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E//spi -s 512 -u 0000 /home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E/system.bit -spi 
+
+PROM /home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E/spi.prm map: Tue Jun 26 11:01:28 2012
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          512K
+PROM start    0000:0000
+PROM end      0007:ffff
+PROM checksum 06de5fcc
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0001:1bdb     Jun 25 22:11:29 2012 /home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E/system.bit

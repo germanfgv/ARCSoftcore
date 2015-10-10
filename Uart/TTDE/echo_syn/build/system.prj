@@ -1,0 +1,7 @@
+verilog work ../system.v
+verilog work ../rtl/uart_tx.v
+verilog work ../rtl/uart_rx.v
+verilog work ../rtl/uart.v
+verilog work ../rtl/counter.v
+verilog work ../rtl/flag_buf.v
+verilog work ../rtl/fifo.v
