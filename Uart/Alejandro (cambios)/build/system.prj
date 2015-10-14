@@ -1,0 +1,2 @@
+verilog work ../system.v
+verilog work ../rtl/uart/uart.v

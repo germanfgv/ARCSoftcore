@@ -39,10 +39,10 @@ module fifo
               W=4  // number of address bits
    )
    (
-    input wire clk, reset,
+    input wire clk, reset, 
     input wire rd, wr,
     input wire [B-1:0] w_data,
-    output wire empty, full,
+    output wire empty, full, useless,
     output wire [B-1:0] r_data
    );
 
@@ -88,6 +88,8 @@ module fifo
       w_ptr_succ = w_ptr_reg + 1;
       r_ptr_succ = r_ptr_reg + 1;
       // default: keep old values
+      w_ptr_next = w_ptr_succ;
+      r_ptr_next = r_ptr_succ;
       w_ptr_next = w_ptr_reg;
       r_ptr_next = r_ptr_reg;
       full_next = full_reg;
@@ -115,12 +117,18 @@ module fifo
                w_ptr_next = w_ptr_succ;
                r_ptr_next = r_ptr_succ;
             end
+        default: 
+            begin
+                w_ptr_next = w_ptr_reg;
+                r_ptr_next = r_ptr_reg;
+            end
       endcase
    end
 
    // output
    assign full = full_reg;
    assign empty = empty_reg;
+   assign useless = |(w_ptr_succ||r_ptr_succ);
 
 endmodule
 

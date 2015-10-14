@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator M.81d
+# Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION M.81d
+DATE             6/26/2012 - 11: 1
+SOURCE          /home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E/spi.mcs
+DEVICE          512K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x06DE5FCC
+START_ADDRESS   0x00000000 END_ADDRESS 0x00011BDB DIRECTION_UP   "/home/josnelihurt/Dropbox/Trabajo/Fsegura/HDL/SharkBoard/Blinking_led-XC3S100E/system.bit" 3s100evq100

@@ -1,0 +1,5 @@
+../system.v
+../rtl/rxclkgenerator.v
+../rtl/txclkgenerator.v
+../rtl/uart/uart.v
+system_tb.v

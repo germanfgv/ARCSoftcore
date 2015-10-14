@@ -88,14 +88,14 @@ initial begin
 	#200 w_data <= 255;
 	#20  w_wr   <= 1;
 	#20  w_wr   <= 0;
-	#300000 w_rd<= 1;
+	#1200000 w_rd<= 1;
 	#20  w_rd   <= 0;
-	#2000000 w_rd<= 1;
+	#1200000 w_rd<= 1;
 	#20  w_rd   <= 0;
-	#2000000 w_rd<= 1;
+	#1200000 w_rd<= 1;
 	#20  w_rd   <= 0;
 
 	
-	#(tck*250000) $finish;
+	#(tck*500000) $finish;
 end
 endmodule

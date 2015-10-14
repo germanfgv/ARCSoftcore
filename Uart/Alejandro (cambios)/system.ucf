@@ -1,0 +1,33 @@
+# ==== Clock inputs (CLK) ====
+# NET "clk" LOC = "P38" | IOSTANDARD = LVCMOS33 ; # GCLK10;
+# NET "clk" PERIOD = 20 HIGH 50%;
+# ==== IO ====
+# Inputs
+NET "reset" LOC = "P13" | IOSTANDARD = LVTTL;
+NET "txclk" LOC = "P38" | IOSTANDARD = LVTTL;
+NET "ld_tx_data" LOC = "P3" | IOSTANDARD = LVTTL;
+NET "tx_data<0>" LOC = "P4" | IOSTANDARD = LVTTL;
+NET "tx_data<1>" LOC = "P5" | IOSTANDARD = LVTTL;
+NET "tx_data<2>" LOC = "P9" | IOSTANDARD = LVTTL;
+NET "tx_data<3>" LOC = "P66" | IOSTANDARD = LVTTL;
+NET "tx_data<4>" LOC = "P67" | IOSTANDARD = LVTTL;
+NET "tx_data<5>" LOC = "P68" | IOSTANDARD = LVTTL;
+NET "tx_data<6>" LOC = "P70" | IOSTANDARD = LVTTL;
+NET "tx_data<7>" LOC = "P71" | IOSTANDARD = LVTTL;
+NET "tx_enable" LOC = "P78" | IOSTANDARD = LVTTL;
+# NET "rxclk" LOC = "P38" | IOSTANDARD = LVTTL;
+NET "uld_rx_data" LOC = "P84" | IOSTANDARD = LVTTL;
+NET "rx_enable" LOC = "P85" | IOSTANDARD = LVTTL;
+NET "rx_in" LOC = "P86" | IOSTANDARD = LVTTL;
+# Outputs
+NET "tx_out" LOC = "P54" | IOSTANDARD = LVTTL;
+NET "tx_empty" LOC = "P10" | IOSTANDARD = LVTTL;
+NET "rx_data<0>" LOC = "P36" | IOSTANDARD = LVTTL;
+NET "rx_data<1>" LOC = "P40" | IOSTANDARD = LVTTL;
+NET "rx_data<2>" LOC = "P41" | IOSTANDARD = LVTTL;
+NET "rx_data<3>" LOC = "P44" | IOSTANDARD = LVTTL;
+NET "rx_data<4>" LOC = "P53" | IOSTANDARD = LVTTL;
+NET "rx_data<5>" LOC = "P57" | IOSTANDARD = LVTTL;
+NET "rx_data<6>" LOC = "P58" | IOSTANDARD = LVTTL;
+NET "rx_data<7>" LOC = "P60" | IOSTANDARD = LVTTL;
+NET "rx_empty" LOC = "P35" | IOSTANDARD = LVTTL;

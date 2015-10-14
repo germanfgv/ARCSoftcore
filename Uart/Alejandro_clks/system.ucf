@@ -1,0 +1,13 @@
+# ==== Clock inputs (CLK) ====
+NET "clk" LOC = "P38" | IOSTANDARD = LVCMOS33 ; # GCLK10;
+NET "clk" PERIOD = 20 HIGH 50%;
+# ==== IO ====
+NET "reset" LOC = "P13" | IOSTANDARD = LVTTL;
+NET "tx_out" LOC = "P66" | IOSTANDARD = LVTTL;
+NET "rx_in" LOC = "P67" | IOSTANDARD = LVTTL;
+NET "rx_empty" LOC = "P71" | IOSTANDARD = LVTTL;
+NET "rx_clk" LOC = "P10" | IOSTANDARD = LVTTL;
+NET "tx_clk" LOC = "P11" | IOSTANDARD = LVTTL;
+
+
+

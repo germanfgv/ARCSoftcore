@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Tue Sep 29 15:23:23 2015
+[*]
+[dumpfile] "/home/alejo/Documents/Alejandro/simulation/system_tb.vcd"
+[dumpfile_mtime] "Tue Sep 29 15:20:10 2015"
+[dumpfile_size] 118899
+[savefile] "/home/alejo/Documents/Alejandro/system_tb.vcd.save.sav"
+[timestart] 0
+[size] 1375 848
+[pos] 271 150
+*-22.000000 6770000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] system_tb.
+[treeopen] system_tb.dut.
+[sst_width] 223
+[signals_width] 286
+[sst_expanded] 1
+[sst_vpaned_height] 249
+@200
+-TX signals
+@28
+system_tb.dut.uart_1.txclk
+system_tb.dut.uart_1.tx_reg[7:0]
+system_tb.dut.uart_1.ld_tx_data
+system_tb.dut.uart_1.tx_enable
+system_tb.dut.uart_1.tx_out
+@200
+-RX signals
+@28
+system_tb.dut.uart_2.sampling
+@22
+system_tb.dut.uart_2.rx_sample_cnt[3:0]
+@23
+system_tb.dut.uart_2.rx_data[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

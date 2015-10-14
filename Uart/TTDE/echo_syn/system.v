@@ -24,8 +24,8 @@
 module system
 #(parameter	clk_freq	= 50000000) 
 (
-	input		clk, rst, tx,
-	output		rx,full
+	input		clk, rst, rx,
+	output		tx,useless,full
 
 
 );
@@ -40,16 +40,17 @@ module system
         los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory.*/
 
 	uart uart_echo(
-    	.clk(clk), 
-	.reset(rst),
-    	.rd_uart(~w_empty),
-	.wr_uart(~w_empty), 
-	.rx(rx),
-    	.w_data(w_edata), 
-    	.tx_full(full), 
-	.rx_empty(w_empty), 
-	.tx(tx),
-    	.r_data(w_edata)
+	    	.clk(clk), 
+		.reset(rst),
+	    	.rd_uart(~w_empty),
+		.wr_uart(~w_empty), 
+		.rx(rx),
+	    	.w_data(w_edata), 
+	    	.tx_full(full), 
+		.rx_empty(w_empty), 
+		.tx(tx),
+	    	.r_data(w_edata),
+	    	.useless(useless)
 	);
 
 
