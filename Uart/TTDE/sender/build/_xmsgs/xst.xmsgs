@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompilers" num="259" delta="new" ><arg fmt="%s" index="1">&quot;../system.v&quot; line 48 </arg>Connection to input port &apos;<arg fmt="%s" index="2">w_data</arg>&apos; does not match port size
+</msg>
+
+<msg type="info" file="Xst" num="2117" delta="new" >HDL ADVISOR - Mux Selector &lt;<arg fmt="%s" index="1">state_reg</arg>&gt; of Case statement line <arg fmt="%s" index="2">87</arg> was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+	- add an &apos;<arg fmt="%s" index="3">INIT</arg>&apos; attribute on signal &lt;<arg fmt="%s" index="4">state_reg</arg>&gt; (optimization is then done without any risk)
+	- use the attribute &apos;<arg fmt="%s" index="5">signal_encoding</arg> <arg fmt="%s" index="6">user</arg>&apos; to avoid onehot optimization
+	- use the attribute &apos;<arg fmt="%s" index="7">safe_implementation</arg> <arg fmt="%s" index="8">yes</arg>&apos; to force XST to perform a safe (but less efficient) optimization
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">w_ptr_succ</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">r_ptr_succ</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2117" delta="new" >HDL ADVISOR - Mux Selector &lt;<arg fmt="%s" index="1">state_reg</arg>&gt; of Case statement line <arg fmt="%s" index="2">93</arg> was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+	- add an &apos;<arg fmt="%s" index="3">INIT</arg>&apos; attribute on signal &lt;<arg fmt="%s" index="4">state_reg</arg>&gt; (optimization is then done without any risk)
+	- use the attribute &apos;<arg fmt="%s" index="5">signal_encoding</arg> <arg fmt="%s" index="6">user</arg>&apos; to avoid onehot optimization
+	- use the attribute &apos;<arg fmt="%s" index="7">safe_implementation</arg> <arg fmt="%s" index="8">yes</arg>&apos; to force XST to perform a safe (but less efficient) optimization
+</msg>
+
+<msg type="info" file="Xst" num="3030" delta="new" >HDL ADVISOR - Register &lt;<arg fmt="%s" index="1">b_reg</arg>&gt; currently described with an asynchronous reset, could be combined with distributed RAM &lt;<arg fmt="%s" index="2">Mram_array_reg</arg>&gt; for implementation on block RAM resources if you made this reset synchronous instead.
+</msg>
+
+<msg type="info" file="Xst" num="3031" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_array_reg</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/r_ptr_reg_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">system</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg128</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg96</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg128</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg64</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg128</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg32</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg127</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg95</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg127</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg63</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg127</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg31</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg126</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg94</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg126</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg62</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg126</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg30</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg125</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg93</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg125</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg61</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg125</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg29</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg124</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg92</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg124</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg60</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg124</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg28</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg123</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg91</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg123</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg59</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg123</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg27</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg122</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg90</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg122</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg58</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg122</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg26</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg120</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg88</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg120</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg56</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg120</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg24</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg119</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg87</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg119</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg55</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg119</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg23</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg121</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg89</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg121</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg57</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg121</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg25</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg118</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg86</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg118</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg54</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg118</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg22</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg117</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg85</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg117</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg53</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg117</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg21</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg116</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg84</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg116</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg52</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg116</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg20</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg115</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg83</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg115</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg51</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg115</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg19</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg114</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg82</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg114</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg50</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg114</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg18</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg113</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg81</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg113</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg49</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg113</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg17</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg111</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg79</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg111</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg47</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg111</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg15</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg110</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg78</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg110</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg46</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg110</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg14</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg112</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg80</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg112</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg48</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg112</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg16</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg109</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg77</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg109</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg45</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg109</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg13</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg108</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg76</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg108</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg44</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg108</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg12</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg107</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg75</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg107</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg43</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg107</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg11</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg106</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg74</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg106</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg42</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg106</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg10</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg105</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg73</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg105</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg41</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg105</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg9</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg104</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg72</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg104</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg40</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg104</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg8</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg102</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg70</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg102</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg38</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg102</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg6</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg101</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg69</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg101</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg37</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg101</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg5</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg103</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg71</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg103</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg39</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg103</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg7</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg100</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg68</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg100</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg36</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg100</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg4</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg99</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg67</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg99</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg35</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg99</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg3</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg98</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg66</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg98</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg34</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg98</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg2</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg97</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg65</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg97</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg33</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="info" file="Xst" num="2399" delta="new" >RAMs &lt;<arg fmt="%s" index="1">uart_kindred/fifo_tx_unit/Mram_array_reg97</arg>&gt;, &lt;<arg fmt="%s" index="2">uart_kindred/fifo_tx_unit/Mram_array_reg1</arg>&gt; are equivalent, second RAM is removed
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg25</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg26</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg27</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg28</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg29</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg30</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg31</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg32</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg24</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg22</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg20</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg18</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg41</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg42</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg43</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg44</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg45</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg46</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg47</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg48</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg40</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg38</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg36</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg34</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg57</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg58</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg59</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg60</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg61</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg62</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg63</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg64</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg56</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg54</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg52</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg50</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg73</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg74</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg75</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg76</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg77</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg78</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg79</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg80</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg72</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg70</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg68</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg66</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg89</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg90</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg91</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg92</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg93</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg94</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg95</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg96</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg88</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg86</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg84</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg82</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg105</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg106</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg107</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg108</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg109</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg110</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg111</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg112</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg104</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg102</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg100</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg98</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg121</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg122</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg123</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg124</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg125</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg126</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg127</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg128</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg120</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg118</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg116</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg114</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg9</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg10</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg11</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg12</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg13</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg14</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg15</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg16</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg8</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg6</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg4</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg2</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg21</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg23</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg37</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg39</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg53</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg55</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg69</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg71</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg85</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg87</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg101</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg103</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg117</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg119</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg5</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg7</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg19</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg35</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg51</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg67</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg83</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg99</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg115</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1898" delta="new" >Due to constant pushing, FF/Latch &lt;<arg fmt="%s" index="1">uart_kindred/fifo_rx_unit/Mram_array_reg3</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">system</arg>&gt;.
+</msg>
+
+</messages>
+

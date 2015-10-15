@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Sat Oct 10 16:48:12 2015
+[*]
+[dumpfile] "/media/german/Shared/Workspace/Repositories/ARCSoftcore/Uart/TTDE/simulation/system_tb.vcd"
+[dumpfile_mtime] "Sat Oct 10 16:32:14 2015"
+[dumpfile_size] 35448763
+[savefile] "/media/german/Shared/Workspace/Repositories/ARCSoftcore/Uart/TTDE/system_tb.vcd.save.sav"
+[timestart] 219600
+[size] 1307 716
+[pos] 339 254
+*-17.000000 470000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] system_tb.
+[treeopen] system_tb.dut.
+[treeopen] system_tb.dut.uart_rc.
+[treeopen] system_tb.dut.uart_tr.
+[sst_width] 223
+[signals_width] 286
+[sst_expanded] 1
+[sst_vpaned_height] 249
+@28
+system_tb.dut.clk
+system_tb.dut.rst
+@22
+system_tb.dut.denv[7:0]
+@28
+system_tb.dut.wr
+@22
+system_tb.dut.drec[7:0]
+@28
+system_tb.dut.rd
+@200
+-TX-RX
+@28
+system_tb.dut.w_tr
+@200
+-TX FIFO
+@22
+system_tb.dut.uart_tr.fifo_tx_unit.w_data[7:0]
+@28
+system_tb.dut.uart_tr.fifo_tx_unit.wr
+@22
+system_tb.dut.uart_tr.fifo_tx_unit.r_data[7:0]
+@23
+system_tb.dut.uart_tr.fifo_tx_unit.r_ptr_reg[7:0]
+@28
+system_tb.dut.uart_tr.fifo_tx_unit.rd
+system_tb.dut.uart_tr.fifo_tx_unit.empty_reg
+system_tb.dut.uart_tr.fifo_tx_unit.full
+@200
+-RX-FIFO
+[pattern_trace] 1
+[pattern_trace] 0

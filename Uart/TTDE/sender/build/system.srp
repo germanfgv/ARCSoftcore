@@ -1,0 +1,832 @@
+Release 12.4 - xst M.81d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "system.prj"
+Input Format                       : MIXED
+
+---- Target Parameters
+Output File Name                   : "system.ngc"
+Target Device                      : xc3S500e-VQ100-4
+
+---- Source Options
+Top Module Name                    : system
+Automatic Register Balancing       : yes
+
+---- General Options
+Optimization Goal                  : AREA
+Optimization Effort                : 2
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../system.v" in library work
+Compiling verilog file "../rtl/uart_tx.v" in library work
+Module <system> compiled
+Compiling verilog file "../rtl/uart_rx.v" in library work
+Module <uart_tx> compiled
+Compiling verilog file "../rtl/uart.v" in library work
+Module <uart_rx> compiled
+Compiling verilog file "../rtl/counter.v" in library work
+Module <uart> compiled
+Compiling verilog file "../rtl/flag_buf.v" in library work
+Module <counter> compiled
+Compiling verilog file "../rtl/fifo.v" in library work
+Module <flag_buf> compiled
+Module <fifo> compiled
+No errors in compilation
+Analysis of file <"system.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <system> in library <work> with parameters.
+	clk_freq = "00000010111110101111000010000000"
+
+Analyzing hierarchy for module <uart> in library <work> with parameters.
+	DBIT = "00000000000000000000000000001000"
+	DVSR = "00000000000000000000000101000110"
+	DVSR_BIT = "00000000000000000000000000001001"
+	FIFO_W = "00000000000000000000000000001000"
+	SB_TICK = "00000000000000000000000000010000"
+
+Analyzing hierarchy for module <counter> in library <work> with parameters.
+	M = "00000000000000000000000101000110"
+	N = "00000000000000000000000000001001"
+
+Analyzing hierarchy for module <uart_rx> in library <work> with parameters.
+	DBIT = "00000000000000000000000000001000"
+	SB_TICK = "00000000000000000000000000010000"
+	data = "10"
+	idle = "00"
+	start = "01"
+	stop = "11"
+
+Analyzing hierarchy for module <fifo> in library <work> with parameters.
+	B = "00000000000000000000000000001000"
+	W = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <uart_tx> in library <work> with parameters.
+	DBIT = "00000000000000000000000000001000"
+	SB_TICK = "00000000000000000000000000010000"
+	data = "10"
+	idle = "00"
+	start = "01"
+	stop = "11"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <system>.
+	clk_freq = 32'sb00000010111110101111000010000000
+Module <system> is correct for synthesis.
+ 
+Analyzing module <uart> in library <work>.
+	DBIT = 32'sb00000000000000000000000000001000
+	DVSR = 32'sb00000000000000000000000101000110
+	DVSR_BIT = 32'sb00000000000000000000000000001001
+	FIFO_W = 32'sb00000000000000000000000000001000
+	SB_TICK = 32'sb00000000000000000000000000010000
+Module <uart> is correct for synthesis.
+ 
+Analyzing module <counter> in library <work>.
+	M = 32'sb00000000000000000000000101000110
+	N = 32'sb00000000000000000000000000001001
+Module <counter> is correct for synthesis.
+ 
+Analyzing module <uart_rx> in library <work>.
+	DBIT = 32'sb00000000000000000000000000001000
+	SB_TICK = 32'sb00000000000000000000000000010000
+	data = 2'b10
+	idle = 2'b00
+	start = 2'b01
+	stop = 2'b11
+Module <uart_rx> is correct for synthesis.
+ 
+Analyzing module <fifo> in library <work>.
+	B = 32'sb00000000000000000000000000001000
+	W = 32'sb00000000000000000000000000001000
+Module <fifo> is correct for synthesis.
+ 
+Analyzing module <uart_tx> in library <work>.
+	DBIT = 32'sb00000000000000000000000000001000
+	SB_TICK = 32'sb00000000000000000000000000010000
+	data = 2'b10
+	idle = 2'b00
+	start = 2'b01
+	stop = 2'b11
+Module <uart_tx> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <counter>.
+    Related source file is "../rtl/counter.v".
+    Found 9-bit adder for signal <r_next$addsub0000> created at line 60.
+    Found 9-bit register for signal <r_reg>.
+    Summary:
+	inferred   9 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <counter> synthesized.
+
+
+Synthesizing Unit <uart_rx>.
+    Related source file is "../rtl/uart_rx.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state_reg> of Case statement line 87 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state_reg> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found finite state machine <FSM_0> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <b_reg>.
+    Found 3-bit adder for signal <n_next$addsub0000> created at line 113.
+    Found 3-bit register for signal <n_reg>.
+    Found 4-bit adder for signal <s_next$share0000> created at line 87.
+    Found 4-bit register for signal <s_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  15 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <uart_rx> synthesized.
+
+
+Synthesizing Unit <fifo>.
+    Related source file is "../rtl/fifo.v".
+WARNING:Xst:646 - Signal <w_ptr_succ> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <r_ptr_succ> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 256x8-bit dual-port RAM <Mram_array_reg> for signal <array_reg>.
+    Found 1-bit 4-to-1 multiplexer for signal <empty_next>.
+    Found 8-bit comparator equal for signal <empty_next$cmp_eq0000> created at line 104.
+    Found 1-bit register for signal <empty_reg>.
+    Found 1-bit 4-to-1 multiplexer for signal <full_next>.
+    Found 8-bit comparator equal for signal <full_next$cmp_eq0000> created at line 112.
+    Found 1-bit register for signal <full_reg>.
+    Found 8-bit 4-to-1 multiplexer for signal <r_ptr_next>.
+    Found 8-bit register for signal <r_ptr_reg>.
+    Found 8-bit 4-to-1 multiplexer for signal <w_ptr_next>.
+    Found 8-bit register for signal <w_ptr_reg>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  18 Multiplexer(s).
+Unit <fifo> synthesized.
+
+
+Synthesizing Unit <uart_tx>.
+    Related source file is "../rtl/uart_tx.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state_reg> of Case statement line 93 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state_reg> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found finite state machine <FSM_1> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <b_reg>.
+    Found 3-bit adder for signal <n_next$addsub0000> created at line 128.
+    Found 3-bit register for signal <n_reg>.
+    Found 4-bit adder for signal <s_next$share0000> created at line 93.
+    Found 4-bit register for signal <s_reg>.
+    Found 1-bit register for signal <tx_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  16 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <uart_tx> synthesized.
+
+
+Synthesizing Unit <uart>.
+    Related source file is "../rtl/uart.v".
+Unit <uart> synthesized.
+
+
+Synthesizing Unit <system>.
+    Related source file is "../system.v".
+Unit <system> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 256x8-bit dual-port RAM                               : 2
+# Adders/Subtractors                                   : 9
+ 3-bit adder                                           : 2
+ 4-bit adder                                           : 2
+ 8-bit adder                                           : 4
+ 9-bit adder                                           : 1
+# Registers                                            : 16
+ 1-bit register                                        : 5
+ 3-bit register                                        : 2
+ 4-bit register                                        : 2
+ 8-bit register                                        : 6
+ 9-bit register                                        : 1
+# Comparators                                          : 4
+ 8-bit comparator equal                                : 4
+# Multiplexers                                         : 8
+ 1-bit 4-to-1 multiplexer                              : 4
+ 8-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <uart_kindred/uart_tx_unit/state_reg/FSM> on signal <state_reg[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <uart_kindred/uart_rx_unit/state_reg/FSM> on signal <state_reg[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+
+Synthesizing (advanced) Unit <fifo>.
+INFO:Xst:3030 - HDL ADVISOR - Register <b_reg> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_array_reg> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <wr_en>         | high     |
+    |     addrA          | connected to signal <w_ptr_reg>     |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrB          | connected to signal <r_ptr_reg>     |          |
+    |     doB            | connected to signal <r_data>        |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3031 - HDL ADVISOR - The RAM <Mram_array_reg> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+Unit <fifo> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# RAMs                                                 : 2
+ 256x8-bit dual-port distributed RAM                   : 2
+# Adders/Subtractors                                   : 9
+ 3-bit adder                                           : 2
+ 4-bit adder                                           : 2
+ 8-bit adder                                           : 4
+ 9-bit adder                                           : 1
+# Registers                                            : 76
+ Flip-Flops                                            : 76
+# Comparators                                          : 4
+ 8-bit comparator equal                                : 4
+# Multiplexers                                         : 8
+ 1-bit 4-to-1 multiplexer                              : 4
+ 8-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <system> ...
+
+Optimizing unit <counter> ...
+
+Optimizing unit <uart_rx> ...
+
+Optimizing unit <fifo> ...
+
+Optimizing unit <uart_tx> ...
+WARNING:Xst:1710 - FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_4> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_0> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_7> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_6> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_5> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_3> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_2> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_kindred/fifo_rx_unit/r_ptr_reg_1> (without init value) has a constant value of 0 in block <system>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg128>, <uart_kindred/fifo_tx_unit/Mram_array_reg96> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg128>, <uart_kindred/fifo_tx_unit/Mram_array_reg64> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg128>, <uart_kindred/fifo_tx_unit/Mram_array_reg32> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg127>, <uart_kindred/fifo_tx_unit/Mram_array_reg95> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg127>, <uart_kindred/fifo_tx_unit/Mram_array_reg63> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg127>, <uart_kindred/fifo_tx_unit/Mram_array_reg31> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg126>, <uart_kindred/fifo_tx_unit/Mram_array_reg94> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg126>, <uart_kindred/fifo_tx_unit/Mram_array_reg62> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg126>, <uart_kindred/fifo_tx_unit/Mram_array_reg30> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg125>, <uart_kindred/fifo_tx_unit/Mram_array_reg93> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg125>, <uart_kindred/fifo_tx_unit/Mram_array_reg61> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg125>, <uart_kindred/fifo_tx_unit/Mram_array_reg29> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg124>, <uart_kindred/fifo_tx_unit/Mram_array_reg92> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg124>, <uart_kindred/fifo_tx_unit/Mram_array_reg60> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg124>, <uart_kindred/fifo_tx_unit/Mram_array_reg28> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg123>, <uart_kindred/fifo_tx_unit/Mram_array_reg91> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg123>, <uart_kindred/fifo_tx_unit/Mram_array_reg59> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg123>, <uart_kindred/fifo_tx_unit/Mram_array_reg27> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg122>, <uart_kindred/fifo_tx_unit/Mram_array_reg90> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg122>, <uart_kindred/fifo_tx_unit/Mram_array_reg58> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg122>, <uart_kindred/fifo_tx_unit/Mram_array_reg26> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg120>, <uart_kindred/fifo_tx_unit/Mram_array_reg88> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg120>, <uart_kindred/fifo_tx_unit/Mram_array_reg56> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg120>, <uart_kindred/fifo_tx_unit/Mram_array_reg24> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg119>, <uart_kindred/fifo_tx_unit/Mram_array_reg87> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg119>, <uart_kindred/fifo_tx_unit/Mram_array_reg55> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg119>, <uart_kindred/fifo_tx_unit/Mram_array_reg23> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg121>, <uart_kindred/fifo_tx_unit/Mram_array_reg89> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg121>, <uart_kindred/fifo_tx_unit/Mram_array_reg57> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg121>, <uart_kindred/fifo_tx_unit/Mram_array_reg25> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg118>, <uart_kindred/fifo_tx_unit/Mram_array_reg86> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg118>, <uart_kindred/fifo_tx_unit/Mram_array_reg54> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg118>, <uart_kindred/fifo_tx_unit/Mram_array_reg22> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg117>, <uart_kindred/fifo_tx_unit/Mram_array_reg85> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg117>, <uart_kindred/fifo_tx_unit/Mram_array_reg53> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg117>, <uart_kindred/fifo_tx_unit/Mram_array_reg21> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg116>, <uart_kindred/fifo_tx_unit/Mram_array_reg84> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg116>, <uart_kindred/fifo_tx_unit/Mram_array_reg52> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg116>, <uart_kindred/fifo_tx_unit/Mram_array_reg20> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg115>, <uart_kindred/fifo_tx_unit/Mram_array_reg83> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg115>, <uart_kindred/fifo_tx_unit/Mram_array_reg51> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg115>, <uart_kindred/fifo_tx_unit/Mram_array_reg19> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg114>, <uart_kindred/fifo_tx_unit/Mram_array_reg82> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg114>, <uart_kindred/fifo_tx_unit/Mram_array_reg50> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg114>, <uart_kindred/fifo_tx_unit/Mram_array_reg18> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg113>, <uart_kindred/fifo_tx_unit/Mram_array_reg81> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg113>, <uart_kindred/fifo_tx_unit/Mram_array_reg49> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg113>, <uart_kindred/fifo_tx_unit/Mram_array_reg17> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg111>, <uart_kindred/fifo_tx_unit/Mram_array_reg79> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg111>, <uart_kindred/fifo_tx_unit/Mram_array_reg47> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg111>, <uart_kindred/fifo_tx_unit/Mram_array_reg15> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg110>, <uart_kindred/fifo_tx_unit/Mram_array_reg78> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg110>, <uart_kindred/fifo_tx_unit/Mram_array_reg46> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg110>, <uart_kindred/fifo_tx_unit/Mram_array_reg14> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg112>, <uart_kindred/fifo_tx_unit/Mram_array_reg80> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg112>, <uart_kindred/fifo_tx_unit/Mram_array_reg48> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg112>, <uart_kindred/fifo_tx_unit/Mram_array_reg16> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg109>, <uart_kindred/fifo_tx_unit/Mram_array_reg77> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg109>, <uart_kindred/fifo_tx_unit/Mram_array_reg45> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg109>, <uart_kindred/fifo_tx_unit/Mram_array_reg13> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg108>, <uart_kindred/fifo_tx_unit/Mram_array_reg76> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg108>, <uart_kindred/fifo_tx_unit/Mram_array_reg44> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg108>, <uart_kindred/fifo_tx_unit/Mram_array_reg12> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg107>, <uart_kindred/fifo_tx_unit/Mram_array_reg75> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg107>, <uart_kindred/fifo_tx_unit/Mram_array_reg43> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg107>, <uart_kindred/fifo_tx_unit/Mram_array_reg11> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg106>, <uart_kindred/fifo_tx_unit/Mram_array_reg74> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg106>, <uart_kindred/fifo_tx_unit/Mram_array_reg42> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg106>, <uart_kindred/fifo_tx_unit/Mram_array_reg10> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg105>, <uart_kindred/fifo_tx_unit/Mram_array_reg73> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg105>, <uart_kindred/fifo_tx_unit/Mram_array_reg41> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg105>, <uart_kindred/fifo_tx_unit/Mram_array_reg9> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg104>, <uart_kindred/fifo_tx_unit/Mram_array_reg72> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg104>, <uart_kindred/fifo_tx_unit/Mram_array_reg40> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg104>, <uart_kindred/fifo_tx_unit/Mram_array_reg8> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg102>, <uart_kindred/fifo_tx_unit/Mram_array_reg70> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg102>, <uart_kindred/fifo_tx_unit/Mram_array_reg38> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg102>, <uart_kindred/fifo_tx_unit/Mram_array_reg6> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg101>, <uart_kindred/fifo_tx_unit/Mram_array_reg69> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg101>, <uart_kindred/fifo_tx_unit/Mram_array_reg37> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg101>, <uart_kindred/fifo_tx_unit/Mram_array_reg5> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg103>, <uart_kindred/fifo_tx_unit/Mram_array_reg71> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg103>, <uart_kindred/fifo_tx_unit/Mram_array_reg39> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg103>, <uart_kindred/fifo_tx_unit/Mram_array_reg7> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg100>, <uart_kindred/fifo_tx_unit/Mram_array_reg68> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg100>, <uart_kindred/fifo_tx_unit/Mram_array_reg36> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg100>, <uart_kindred/fifo_tx_unit/Mram_array_reg4> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg99>, <uart_kindred/fifo_tx_unit/Mram_array_reg67> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg99>, <uart_kindred/fifo_tx_unit/Mram_array_reg35> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg99>, <uart_kindred/fifo_tx_unit/Mram_array_reg3> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg98>, <uart_kindred/fifo_tx_unit/Mram_array_reg66> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg98>, <uart_kindred/fifo_tx_unit/Mram_array_reg34> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg98>, <uart_kindred/fifo_tx_unit/Mram_array_reg2> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg97>, <uart_kindred/fifo_tx_unit/Mram_array_reg65> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg97>, <uart_kindred/fifo_tx_unit/Mram_array_reg33> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <uart_kindred/fifo_tx_unit/Mram_array_reg97>, <uart_kindred/fifo_tx_unit/Mram_array_reg1> are equivalent, second RAM is removed
+
+Mapping all equations...
+Building and optimizing final netlist ...
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg25> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg26> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg27> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg28> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg29> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg30> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg31> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg32> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg24> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg22> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg20> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg18> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg41> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg42> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg43> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg44> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg45> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg46> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg47> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg48> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg40> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg38> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg36> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg34> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg57> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg58> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg59> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg60> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg61> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg62> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg63> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg64> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg56> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg54> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg52> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg50> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg73> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg74> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg75> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg76> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg77> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg78> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg79> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg80> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg72> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg70> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg68> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg66> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg89> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg90> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg91> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg92> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg93> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg94> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg95> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg96> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg88> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg86> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg84> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg82> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg105> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg106> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg107> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg108> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg109> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg110> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg111> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg112> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg104> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg102> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg100> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg98> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg121> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg122> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg123> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg124> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg125> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg126> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg127> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg128> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg120> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg118> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg116> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg114> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg9> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg10> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg11> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg12> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg13> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg14> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg15> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg16> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg8> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg6> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg4> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg2> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg21> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg23> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg37> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg39> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg53> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg55> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg69> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg71> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg85> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg87> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg101> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg103> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg117> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg119> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg5> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg7> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg19> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg35> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg51> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg67> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg83> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg99> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg115> is unconnected in block <system>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <uart_kindred/fifo_rx_unit/Mram_array_reg3> is unconnected in block <system>.
+Forward register balancing over carry chain uart_kindred/baud_gen_unit/Madd_r_next_addsub0000_cy<0>
+
+Pipelining and Register Balancing Report ...
+
+Processing Unit <system> :
+	Register(s) uart_kindred/baud_gen_unit/r_next_cmp_eq000015_FRB uart_kindred/baud_gen_unit/r_reg_5 uart_kindred/baud_gen_unit/r_next_cmp_eq000010_FRB uart_kindred/baud_gen_unit/r_reg_3 has(ve) been forward balanced into : uart_kindred/baud_gen_unit/r_next_cmp_eq000027_FRB.
+	Register(s) uart_kindred/fifo_rx_unit/full_reg has(ve) been backward balanced into : uart_kindred/fifo_rx_unit/full_reg_BRB0 uart_kindred/fifo_rx_unit/full_reg_BRB1 uart_kindred/fifo_rx_unit/full_reg_BRB2 uart_kindred/fifo_rx_unit/full_reg_BRB3.
+	Register(s) uart_kindred/fifo_rx_unit/w_ptr_reg_3 has(ve) been backward balanced into : uart_kindred/fifo_rx_unit/w_ptr_reg_3_BRB0 uart_kindred/fifo_rx_unit/w_ptr_reg_3_BRB1 uart_kindred/fifo_rx_unit/w_ptr_reg_3_BRB2.
+	Register(s) uart_kindred/fifo_rx_unit/w_ptr_reg_4 has(ve) been backward balanced into : uart_kindred/fifo_rx_unit/w_ptr_reg_4_BRB0 uart_kindred/fifo_rx_unit/w_ptr_reg_4_BRB1 uart_kindred/fifo_rx_unit/w_ptr_reg_4_BRB2 .
+	Register(s) uart_kindred/fifo_rx_unit/w_ptr_reg_5 has(ve) been backward balanced into : uart_kindred/fifo_rx_unit/w_ptr_reg_5_BRB0 uart_kindred/fifo_rx_unit/w_ptr_reg_5_BRB1 uart_kindred/fifo_rx_unit/w_ptr_reg_5_BRB2 uart_kindred/fifo_rx_unit/w_ptr_reg_5_BRB3.
+	Register(s) uart_kindred/fifo_rx_unit/w_ptr_reg_7 has(ve) been backward balanced into : uart_kindred/fifo_rx_unit/w_ptr_reg_7_BRB0 uart_kindred/fifo_rx_unit/w_ptr_reg_7_BRB1 uart_kindred/fifo_rx_unit/w_ptr_reg_7_BRB2 uart_kindred/fifo_rx_unit/w_ptr_reg_7_BRB3.
+	Register(s) uart_kindred/fifo_tx_unit/full_reg has(ve) been backward balanced into : uart_kindred/fifo_tx_unit/full_reg_BRB0 uart_kindred/fifo_tx_unit/full_reg_BRB1 uart_kindred/fifo_tx_unit/full_reg_BRB2 uart_kindred/fifo_tx_unit/full_reg_BRB3.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_0 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_0_BRB1 uart_kindred/uart_rx_unit/b_reg_0_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_1 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_1_BRB1 uart_kindred/uart_rx_unit/b_reg_1_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_2 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_2_BRB1 uart_kindred/uart_rx_unit/b_reg_2_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_3 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_3_BRB1 uart_kindred/uart_rx_unit/b_reg_3_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_4 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_4_BRB1 uart_kindred/uart_rx_unit/b_reg_4_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_5 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_5_BRB1 uart_kindred/uart_rx_unit/b_reg_5_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_6 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_6_BRB1 uart_kindred/uart_rx_unit/b_reg_6_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/b_reg_7 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/b_reg_7_BRB0 uart_kindred/uart_rx_unit/b_reg_7_BRB1 uart_kindred/uart_rx_unit/b_reg_7_BRB2.
+	Register(s) uart_kindred/uart_rx_unit/n_reg_0 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/n_reg_0_BRB0 uart_kindred/uart_rx_unit/n_reg_0_BRB1 uart_kindred/uart_rx_unit/n_reg_0_BRB2 .
+	Register(s) uart_kindred/uart_rx_unit/n_reg_1 has(ve) been backward balanced into : uart_kindred/uart_rx_unit/n_reg_1_BRB0 uart_kindred/uart_rx_unit/n_reg_1_BRB1 uart_kindred/uart_rx_unit/n_reg_1_BRB3 uart_kindred/uart_rx_unit/n_reg_1_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_0 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_0_BRB1 uart_kindred/uart_tx_unit/b_reg_0_BRB2 uart_kindred/uart_tx_unit/b_reg_0_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_1 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_1_BRB1 uart_kindred/uart_tx_unit/b_reg_1_BRB2 uart_kindred/uart_tx_unit/b_reg_1_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_2 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_2_BRB1 uart_kindred/uart_tx_unit/b_reg_2_BRB2 uart_kindred/uart_tx_unit/b_reg_2_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_3 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_3_BRB1 uart_kindred/uart_tx_unit/b_reg_3_BRB2 uart_kindred/uart_tx_unit/b_reg_3_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_4 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_4_BRB1 uart_kindred/uart_tx_unit/b_reg_4_BRB2 uart_kindred/uart_tx_unit/b_reg_4_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_5 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_5_BRB1 uart_kindred/uart_tx_unit/b_reg_5_BRB2 uart_kindred/uart_tx_unit/b_reg_5_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_6 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_6_BRB1 uart_kindred/uart_tx_unit/b_reg_6_BRB2 uart_kindred/uart_tx_unit/b_reg_6_BRB3 uart_kindred/uart_tx_unit/b_reg_6_BRB4 uart_kindred/uart_tx_unit/b_reg_6_BRB5.
+	Register(s) uart_kindred/uart_tx_unit/b_reg_7 has(ve) been backward balanced into : uart_kindred/uart_tx_unit/b_reg_7_BRB0 uart_kindred/uart_tx_unit/b_reg_7_BRB1 uart_kindred/uart_tx_unit/b_reg_7_BRB2 uart_kindred/uart_tx_unit/b_reg_7_BRB3.
+	Register(s) uart_kindred/uart_tx_unit/tx_reg has(ve) been backward balanced into : uart_kindred/uart_tx_unit/tx_reg_BRB0 uart_kindred/uart_tx_unit/tx_reg_BRB1 uart_kindred/uart_tx_unit/tx_reg_BRB2.
+Unit <system> processed.
+FlipFlop uart_kindred/fifo_rx_unit/empty_reg has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 125
+ Flip-Flops                                            : 125
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : system.ngr
+Top Level Output File Name         : system.ngc
+Output Format                      : ngc
+Optimization Goal                  : AREA
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 7
+
+Cell Usage :
+# BELS                             : 382
+#      GND                         : 1
+#      LUT1                        : 8
+#      LUT2                        : 26
+#      LUT3                        : 124
+#      LUT4                        : 129
+#      MUXCY                       : 8
+#      MUXF5                       : 52
+#      MUXF6                       : 16
+#      MUXF7                       : 8
+#      VCC                         : 1
+#      XORCY                       : 9
+# FlipFlops/Latches                : 125
+#      FD                          : 34
+#      FDC                         : 84
+#      FDP                         : 7
+# RAMS                             : 40
+#      RAM16X1D                    : 40
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 6
+#      IBUF                        : 2
+#      OBUF                        : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500evq100-4 
+
+ Number of Slices:                      174  out of   4656     3%  
+ Number of Slice Flip Flops:            124  out of   9312     1%  
+ Number of 4 input LUTs:                367  out of   9312     3%  
+    Number used as logic:               287
+    Number used as RAMs:                 80
+ Number of IOs:                           7
+ Number of bonded IOBs:                   7  out of     66    10%  
+    IOB Flip Flops:                       1
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 165   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 91    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.004ns (Maximum Frequency: 124.933MHz)
+   Minimum input arrival time before clock: 5.680ns
+   Maximum output required time after clock: 8.191ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 8.004ns (frequency: 124.933MHz)
+  Total number of paths / destination ports: 3002 / 460
+-------------------------------------------------------------------------
+Delay:               8.004ns (Levels of Logic = 5)
+  Source:            uart_kindred/uart_tx_unit/s_reg_0 (FF)
+  Destination:       uart_kindred/fifo_tx_unit/full_reg_BRB0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: uart_kindred/uart_tx_unit/s_reg_0 to uart_kindred/fifo_tx_unit/full_reg_BRB0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.591   0.761  uart_kindred/uart_tx_unit/s_reg_0 (uart_kindred/uart_tx_unit/s_reg_0)
+     LUT4:I3->O            7   0.704   0.712  uart_kindred/uart_tx_unit/state_reg_cmp_eq00001 (uart_kindred/uart_tx_unit/state_reg_cmp_eq0000)
+     LUT4:I3->O           26   0.704   1.264  uart_kindred/uart_tx_unit/tx_done_tick1 (uart_kindred/tx_done_tick)
+     LUT4:I3->O            1   0.704   0.424  uart_kindred/fifo_tx_unit/Mmux_full_next3242 (uart_kindred/fifo_tx_unit/Mmux_full_next3242)
+     LUT4:I3->O            1   0.704   0.424  uart_kindred/fifo_tx_unit/Mmux_full_next3246 (uart_kindred/fifo_tx_unit/Mmux_full_next3246)
+     LUT4:I3->O            1   0.704   0.000  uart_kindred/fifo_tx_unit/Mmux_full_next3258 (uart_kindred/fifo_tx_unit/Mmux_full_next3258)
+     FDC:D                     0.308          uart_kindred/fifo_tx_unit/full_reg_BRB0
+    ----------------------------------------
+    Total                      8.004ns (4.419ns logic, 3.585ns route)
+                                       (55.2% logic, 44.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Offset:              5.680ns (Levels of Logic = 5)
+  Source:            rx (PAD)
+  Destination:       uart_kindred/uart_rx_unit/s_reg_2 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rx to uart_kindred/uart_rx_unit/s_reg_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.591  rx_IBUF (rx_IBUF)
+     LUT4:I3->O            3   0.704   0.535  uart_kindred/uart_rx_unit/s_next<0>15 (uart_kindred/uart_rx_unit/N16)
+     LUT4:I3->O            1   0.704   0.000  uart_kindred/uart_rx_unit/s_next<2>291 (uart_kindred/uart_rx_unit/s_next<2>291)
+     MUXF5:I1->O           1   0.321   0.595  uart_kindred/uart_rx_unit/s_next<2>29_f5 (uart_kindred/uart_rx_unit/s_next<2>29)
+     LUT4:I0->O            1   0.704   0.000  uart_kindred/uart_rx_unit/s_next<2>32 (uart_kindred/uart_rx_unit/s_next<2>)
+     FDC:D                     0.308          uart_kindred/uart_rx_unit/s_reg_2
+    ----------------------------------------
+    Total                      5.680ns (3.959ns logic, 1.721ns route)
+                                       (69.7% logic, 30.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 16 / 4
+-------------------------------------------------------------------------
+Offset:              8.191ns (Levels of Logic = 3)
+  Source:            uart_kindred/fifo_rx_unit/Mram_array_reg81 (RAM)
+  Destination:       data_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: uart_kindred/fifo_rx_unit/Mram_array_reg81 to data_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAM16X1D:WCLK->DPO    1   1.901   0.595  uart_kindred/fifo_rx_unit/Mram_array_reg81 (rx_data<5>)
+     LUT4:I0->O            1   0.704   0.595  data_out4 (data_out4)
+     LUT2:I0->O            1   0.704   0.420  data_out10 (data_out_OBUF)
+     OBUF:I->O                 3.272          data_out_OBUF (data_out)
+    ----------------------------------------
+    Total                      8.191ns (6.581ns logic, 1.610ns route)
+                                       (80.3% logic, 19.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.60 secs
+ 
+--> 
+
+
+Total memory usage is 148792 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  131 (   0 filtered)
+Number of infos    :  100 (   0 filtered)
+
