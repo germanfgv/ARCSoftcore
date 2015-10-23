@@ -34,6 +34,8 @@ wire [(32*38-1):0] 	w_data_reg; //Bus que concatena la salida de todos los regis
 
 wire [31:0]		w_data_ir;  //Datos del Instruction register	 
 
+wire [4:0]		w_auxiliar_a,
+			w_auxiliar_b; 
 
 	//Asignaciones combinacionales
 
@@ -171,133 +173,133 @@ assign w_data_reg[31:0] = 0;
 		.dataout(w_data_reg[32*(16)-1:32*(15)])
 		);
 
-	registro reg_16(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[16]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(17)-1:32*(16)])
-		);
+//	registro reg_16(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[16]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(17)-1:32*(16)])
+//		);
 
-	registro reg_17(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[17]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(18)-1:32*(17)])
-		);
+//	registro reg_17(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[17]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(18)-1:32*(17)])
+//		);
 
-	registro reg_18(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[18]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(19)-1:32*(18)])
-		);
+//	registro reg_18(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[18]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(19)-1:32*(18)])
+//		);
 
-	registro reg_19(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[19]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(20)-1:32*(19)])
-		);
+//	registro reg_19(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[19]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(20)-1:32*(19)])
+//		);
 
-	registro reg_20(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[20]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(21)-1:32*(20)])
-		);
+//	registro reg_20(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[20]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(21)-1:32*(20)])
+//		);
 
-	registro reg_21(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[21]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(22)-1:32*(21)])
-		);
+//	registro reg_21(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[21]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(22)-1:32*(21)])
+//		);
 
-	registro reg_22(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[22]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(23)-1:32*(22)])
-		);
+//	registro reg_22(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[22]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(23)-1:32*(22)])
+//		);
 
-	registro reg_23(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[23]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(24)-1:32*(23)])
-		);
+//	registro reg_23(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[23]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(24)-1:32*(23)])
+//		);
 
-	registro reg_24(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[24]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(25)-1:32*(24)])
-		);
+//	registro reg_24(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[24]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(25)-1:32*(24)])
+//		);
 
-	registro reg_25(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[25]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(26)-1:32*(25)])
-		);
+//	registro reg_25(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[25]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(26)-1:32*(25)])
+//		);
 
-	registro reg_26(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[26]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(27)-1:32*(26)])
-		);
+//	registro reg_26(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[26]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(27)-1:32*(26)])
+//		);
 
-	registro reg_27(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[27]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(28)-1:32*(27)])
-		);
+//	registro reg_27(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[27]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(28)-1:32*(27)])
+//		);
 
-	registro reg_28(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[28]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(29)-1:32*(28)])
-		);
+//	registro reg_28(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[28]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(29)-1:32*(28)])
+//		);
 
-	registro reg_29(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[29]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(30)-1:32*(29)])
-		);
+//	registro reg_29(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[29]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(30)-1:32*(29)])
+//		);
 
-	registro reg_30(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[30]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(31)-1:32*(30)])
-		);
+//	registro reg_30(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[30]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(31)-1:32*(30)])
+//		);
 
-	registro reg_31(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[31]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(32)-1:32*(31)])
-		);
+//	registro reg_31(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[31]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(32)-1:32*(31)])
+//		);
 
 
 //	genvar i;
@@ -416,26 +418,33 @@ assign w_data_reg[31:0] = 0;
 		.z(w_dec_c)
 	);
 	
+	assign w_auxiliar_a = (w_mux_a<16) ? w_mux_a : w_mux_a-6'b010000;
+	
+
+	assign w_auxiliar_b = (w_mux_b<16) ? w_mux_b : w_mux_b-6'b010000;
+
+
+
 	//multiplexores de selección de registro: Multiplexan los valores de los registros para escoger los datos que 	iran a los buses A y B
 
 	multiplexor #(
-		.N(38), //Número de señales de entrada
+		.N(22), //Número de señales de entrada
 		.M(32), //Número de bits señal de entrada
-		.P(6)   //Número de bits de la señal de selección
+		.P(5)   //Número de bits de la señal de selección
 		)
 	selectionA(
-		.selection(w_mux_a),
+		.selection(w_auxiliar_a),
 		.datain(w_data_reg),
 		.dataout(w_bus_a)
 		);
 
 	multiplexor #(
-		.N(38), //Número de señales de entrada
+		.N(22), //Número de señales de entrada
 		.M(32), //Número de bits señal de entrada
-		.P(6)   //Número de bits de la señal de selección
+		.P(5)   //Número de bits de la señal de selección
 		)
 	selectionB(
-		.selection(w_mux_b),
+		.selection(w_auxiliar_b),
 		.datain(w_data_reg),
 		.dataout(w_bus_b)
 		);
