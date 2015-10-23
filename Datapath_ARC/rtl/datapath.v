@@ -1,4 +1,7 @@
-module datapath(
+module datapath #(
+parameter R=16, //Número de registros de proposito general
+)
+(
 input clk,rst,
 input [40:0] mir,
 input [31:0] data_MM, // Datos de la Main Memory que puede ingresar al bus C para que sean escritos en los registros
@@ -322,7 +325,7 @@ assign w_data_reg[31:0] = 0;
 		.clk(clk),
 		.writer(w_writer[32]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[1055:1024])
+		.dataout(w_data_reg[32*(R+1)-1:32*(R)])
 		);
 	
 	
@@ -334,7 +337,7 @@ assign w_data_reg[31:0] = 0;
 		.clk(clk),
 		.writer(w_writer[0+33]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(0+34)-1:32*(0+33)])
+		.dataout(w_data_reg[32*(R+2)-1:32*(R+1)])
 		);
 
 	registro temp_1(
@@ -342,7 +345,7 @@ assign w_data_reg[31:0] = 0;
 		.clk(clk),
 		.writer(w_writer[1+33]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(1+34)-1:32*(1+33)])
+		.dataout(w_data_reg[32*(R+3)-1:32*(R+2)])
 		);
 
 
@@ -351,7 +354,7 @@ assign w_data_reg[31:0] = 0;
 		.clk(clk),
 		.writer(w_writer[2+33]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(2+34)-1:32*(2+33)])
+		.dataout(w_data_reg[32*(R+4)-1:32*(R+3)])
 		);
 
 
@@ -360,7 +363,7 @@ assign w_data_reg[31:0] = 0;
 		.clk(clk),
 		.writer(w_writer[3+33]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(3+34)-1:32*(3+33)])
+		.dataout(w_data_reg[32*(R+5)-1:32*(R+4)])
 		);
 
 
