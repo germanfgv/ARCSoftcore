@@ -39,9 +39,9 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 
 /*Decaración demódulos*/
 
-	//Control section: Esté módulo cnntrola la operación del datapath. Contiene toda la lógica que permite decidir 		los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory. 
+	//Control section: Esté módulo controla la operación del datapath. Contiene toda la lógica que permite decidir 		los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory. 
 	control_section cs(
-	.rst(rst),
+	.rst(w_rst),
 	.clk(clk),
 	.ack(ack),
 	.ir(w_ir),
@@ -52,7 +52,7 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 
 	//Datapath: Manipula los datos y realiza operaciones dependiendo de las instrucciones de la control section
 	datapath dapa (
-	.rst(rst),
+	.rst(w_rst),
 	.clk(clk),
 	.mir(w_mir),
 	.data_MM(w_data_mm),
@@ -74,4 +74,6 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 
 
 assign data=w_psr;
+assign w_rst=~rst;
+
 endmodule
