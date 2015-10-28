@@ -1,5 +1,5 @@
 module datapath #(
-parameter R=16, //Número de registros de proposito general
+parameter R=16 //Número de registros de proposito general
 )
 (
 input clk,rst,
@@ -15,37 +15,37 @@ output [3:0] w_psr
 /* 
 Declaración de cables
 */
-wire [5:0]		w_mux_a,   //Cable que conecta el multiplex A con el decoder A
-			w_mux_b,   //Cable que conecta el multiplex B con el decoder B
-			w_dec_c;   //Cable que conecta el multiplex C con el decoder C
+wire [5:0]	w_mux_a,   //Cable que conecta el multiplex A con el decoder A
+		w_mux_b,   //Cable que conecta el multiplex B con el decoder B
+		w_dec_c;   //Cable que conecta el multiplex C con el decoder C
 
-wire [3:0]		w_flags;     //Vector de flags de la ALU
+wire [3:0]	w_flags;     //Vector de flags de la ALU
 
 
-wire [31:0]		w_bus_a,
-			w_data_alu,
-			w_data_shifter,
-			w_bus_b,
-			w_bus_c;     //Bus usado para escribir en los registros
+wire [31:0]	w_bus_a,
+		w_data_alu,
+		w_data_shifter,
+		w_bus_b,
+		w_bus_c;     //Bus usado para escribir en los registros
 
 
 
 wire [37:0]		w_writer;  //Señal de escritura para los registros
 
 
-wire [(32*38-1):0] 	w_data_reg; //Bus que concatena la salida de todos los registros
+wire [(32*(R+6)-1):0] 	w_data_reg; //Bus que concatena la salida de todos los registros
 
 wire [31:0]		w_data_ir;  //Datos del Instruction register	 
 
 wire [4:0]		w_auxiliar_a,
 			w_auxiliar_b; 
 
-	//Asignaciones combinacionales
+//Asignaciones combinacionales
 
-	assign w_data_reg[38*32-1:37*32]=w_data_ir;
-	assign w_ir=w_data_ir;
-	assign busA = w_bus_a;
-	assign busB = w_bus_b;
+assign w_data_reg[(R+6)*32-1:(R+5)*32]=w_data_ir;
+assign w_ir=w_data_ir;
+assign busA = w_bus_a;
+assign busB = w_bus_b;
 
 /* Declaración de registros
 */
@@ -323,7 +323,7 @@ assign w_data_reg[31:0] = 0;
 	registro pc(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[32]),
+		.writer(w_writer[R+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_reg[32*(R+1)-1:32*(R)])
 		);
@@ -335,7 +335,7 @@ assign w_data_reg[31:0] = 0;
 	registro temp_0(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[0+33]),
+		.writer(w_writer[R+1+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_reg[32*(R+2)-1:32*(R+1)])
 		);
@@ -343,7 +343,7 @@ assign w_data_reg[31:0] = 0;
 	registro temp_1(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[1+33]),
+		.writer(w_writer[R+2+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_reg[32*(R+3)-1:32*(R+2)])
 		);
@@ -352,7 +352,7 @@ assign w_data_reg[31:0] = 0;
 	registro temp_2(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[2+33]),
+		.writer(w_writer[R+3+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_reg[32*(R+4)-1:32*(R+3)])
 		);
@@ -361,7 +361,7 @@ assign w_data_reg[31:0] = 0;
 	registro temp_3(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[3+33]),
+		.writer(w_writer[R+4+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_reg[32*(R+5)-1:32*(R+4)])
 		);
@@ -387,7 +387,7 @@ assign w_data_reg[31:0] = 0;
 	registro ir(
 		.rst(rst),	
 		.clk(clk),
-		.writer(w_writer[37]),
+		.writer(w_writer[R+5+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_ir)
 		);
@@ -466,6 +466,8 @@ assign w_data_reg[31:0] = 0;
 
 Este módulo envia la señal que habilita la escritura de los datos del bus C en los registros
 */
+
+
 	decoder dec_c(
 		.seleccion(w_dec_c),
 		.habilitador(w_writer)
