@@ -63,10 +63,10 @@ initial
 		data2088=32'h81c3e848; // jump a 2120 (Inicia loop infinito)
 		data2092=32'h00000014;
 		data2096=32'h00000834;  
-		data2100=32'h0000001e; // 31
+		data2100=32'h0000001e; // 30
 		data2104=32'hffffffd3; // -45
 		data2108=32'h00000034; // 52
-		data2112=32'h00000026; // 36
+		data2112=32'h00000026; // 38
 		data2116=32'hfffffff1; // -15
 		data2088=32'h81c3e828; // jump a 2088
 
