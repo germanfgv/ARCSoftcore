@@ -26,8 +26,8 @@ module system
 (
 	input		clk, rst, wr,rd, habilitarDecodificador,
 	input   [4:0]   entradaDecodificador,
-	input   [7:0]   denv,
-	output  [15:0]  salidaDecodificador,
+	input   [7:0]   denv, data_IO,
+	output  [15:0]  salidaMemoriaR,
 	output	[7:0]	drec
 
 );
@@ -68,9 +68,12 @@ module system
 	);
 
 	IO_mem IO_Memory_Block (
+	.clk(clk),
+	.rst(rst),
+	.data_IO_in(data_IO),
 	.habilitar(habilitarDecodificador),
 	.entradaDeco(entradaDecodificador),
-	.salidaDeco(salidaDecodificador)
+	.salidaMemoria(salidaMemoriaR)
 	);
 
 assign drec=w_rdata;

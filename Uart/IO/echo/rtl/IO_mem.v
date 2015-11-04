@@ -8,11 +8,13 @@ module IO_mem #
 	(
 	input habilitar, rst, clk, 
 	input [N-1:0] entradaDeco,
+	input [T-1:0] data_IO_in,
 	output [(R*T)-1:0] salidaMemoria
 	);
 
 reg [N-1:0] base=1;
-reg [N-1:0] salidaDeco;
+wire [N-1:0] salidaDeco;
+//reg [N-1:0] salidaDeco=0;
 assign salidaDeco=habilitar*(base<<(entradaDeco));
 
 	registro reg_1(
@@ -29,7 +31,7 @@ assign salidaDeco=habilitar*(base<<(entradaDeco));
 		.clk(clk),
 		.writer(salidaDeco[1]),       //TODO: A mano, modificar el bit write que nos permite editar este registro 
 		.datain(data_IO_in),
-		.dataout(salidaMemoria[8:15]) //TODO: A mano, modificar los bits de salida en grupos de 8 bits
+		.dataout(salidaMemoria[15:8]) //TODO: A mano, modificar los bits de salida en grupos de 8 bits
 		);
 
 

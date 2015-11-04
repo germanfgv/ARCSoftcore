@@ -35,7 +35,7 @@ reg        	clk_tb,w_wr,w_rd;
 reg        	rst_tb;
 reg	   	w_ack;
 wire       	led_tb;
-reg	[7:0]   w_data;
+reg	[7:0]   w_data, data_IO_tb;
 
 
 reg		hab_deco_tb;
@@ -57,7 +57,8 @@ system #(
 	.rd(w_rd),
 	.habilitarDecodificador(hab_deco_tb),
 	.entradaDecodificador(in_deco_tb),
-	.salidaDecodificador()
+	.data_IO(data_IO_tb),
+	.salidaMemoriaR()
 	
 );
 
@@ -85,21 +86,19 @@ initial begin
 	#0   w_rd   <= 0;
 	#0   hab_deco_tb <=0;
 	#0   in_deco_tb <=0;
-	#10  hab_deco_tb <=1;
-	#15  in_deco_tb <= 2;
-	#15  in_deco_tb <= 3;
-	#15  in_deco_tb <= 4;
-	#15  in_deco_tb <= 5;
-	#15  in_deco_tb <= 6;
-	#15  in_deco_tb <= 7;
-	#15  in_deco_tb <= 8;
-	#15  in_deco_tb <= 9;
-	#15  in_deco_tb <= 10;
-	#15  in_deco_tb <= 11;
-	#15  in_deco_tb <= 12;
-	#15  in_deco_tb <= 13;
-	#15  in_deco_tb <= 14;
-	#15  in_deco_tb <= 15;
+	#0   data_IO_tb <=0;
+	#10  hab_deco_tb <=0;
+	#15  in_deco_tb <= 0;
+	#20  data_IO_tb <=8'b10101010;
+	#20  hab_deco_tb <=1;
+	#20  hab_deco_tb <=0;
+	#20  data_IO_tb <=8'b11110000;
+	#20  in_deco_tb <=1;	
+	#20  hab_deco_tb <=1;
+	#20  hab_deco_tb <=0;
+
+
+
 
 	
 	#(tck*500000) $finish;
