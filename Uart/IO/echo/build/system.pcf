@@ -1,0 +1,15 @@
+//! **************************************************************************
+// Written by: Map M.81d on Sat Nov 07 12:55:05 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "P38" LEVEL 1;
+COMP "selectorMuxALUCC" LOCATE = SITE "P35" LEVEL 1;
+COMP "dataOutALU_REGEN<0>" LOCATE = SITE "P60" LEVEL 1;
+COMP "selectorMuxIO" LOCATE = SITE "P44" LEVEL 1;
+COMP "dataOutALU_REGEN<1>" LOCATE = SITE "P58" LEVEL 1;
+COMP "selectorMuxMMIO" LOCATE = SITE "P41" LEVEL 1;
+COMP "rst" LOCATE = SITE "P13" LEVEL 1;
+NET "clk_IBUF" PERIOD = 20 ns HIGH 50%;
+SCHEMATIC END;
+

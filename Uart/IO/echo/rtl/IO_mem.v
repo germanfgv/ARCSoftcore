@@ -1,7 +1,7 @@
 module IO_mem #
 (
  parameter R=2, // Cantidad de registros de propósito general dedicaddos para I/O 
- parameter N=5, // Número de bits dedicados para la selección de registros I/O TODO: Log2(R) Aproximar hacia arriba. 
+ parameter N=5, // Número de bits dedicados para la selección de registros I/O TODO: Log2(R) Aproximar hacia arriba, por lo menos. 
  parameter T=8  // Tamaño de los registros 
 )
 
@@ -18,7 +18,7 @@ wire [N-1:0] salidaDeco;
 assign salidaDeco=habilitar*(base<<(entradaDeco));
 
 	registro reg_1(
-		.rst(rst),			
+		.rst(rst),
 		.clk(clk),
 		.writer(salidaDeco[0]),       //TODO: A mano, modificar el bit write que nos permite editar este registro 
 		.datain(data_IO_in),

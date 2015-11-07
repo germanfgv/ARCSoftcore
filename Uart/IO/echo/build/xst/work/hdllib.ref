@@ -1,0 +1,10 @@
+MO multiplexor NULL ../rtl/multiplexor.v vlg31/multiplexor.bin 1446918899
+MO flag_buf NULL ../rtl/flag_buf.v vlg6A/flag__buf.bin 1446918899
+MO counter NULL ../rtl/counter.v vlg10/counter.bin 1446918899
+MO system NULL ../system.v vlg19/system.bin 1446918899
+MO IO_mem NULL ../rtl/IO_mem.v vlg6A/_i_o__mem.bin 1446918899
+MO fifo NULL ../rtl/fifo.v vlg7C/fifo.bin 1446918899
+MO uart NULL ../rtl/uart.v vlg48/uart.bin 1446918899
+MO uart_rx NULL ../rtl/uart_rx.v vlg21/uart__rx.bin 1446918899
+MO uart_tx NULL ../rtl/uart_tx.v vlg2B/uart__tx.bin 1446918899
+MO registro NULL ../rtl/reg.v vlg67/registro.bin 1446918899

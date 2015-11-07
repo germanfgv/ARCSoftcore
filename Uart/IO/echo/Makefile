@@ -35,6 +35,7 @@ SRC=						\
 	../rtl/counter.v      \
 	../rtl/flag_buf.v      \
 	../rtl/reg.v            \
+	../rtl/multiplexor.v     \
 	../rtl/fifo.v 
 	
 

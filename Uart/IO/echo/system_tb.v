@@ -35,11 +35,14 @@ reg        	clk_tb,w_wr,w_rd;
 reg        	rst_tb;
 reg	   	w_ack;
 wire       	led_tb;
-reg	[7:0]   w_data, data_IO_tb;
+reg	[7:0]   w_data, data_IO_tb,dataBBM_tb;
 
 
 reg		hab_deco_tb;
 reg	[4:0]	in_deco_tb;
+
+reg habilitarMux_tb,habilitarMuxMMIO_tb;
+reg [15:0] datoInMux_tb;
 
 
 
@@ -58,7 +61,16 @@ system #(
 	.habilitarDecodificador(hab_deco_tb),
 	.entradaDecodificador(in_deco_tb),
 	.data_IO(data_IO_tb),
-	.salidaMemoriaR()
+	.salidaMemoriaR(),
+
+
+	.selectorMuxIO(habilitarMux_tb),
+	.dataMuxIO(datoInMux_tb),
+	.dataOutMuxIO(),
+
+	.selectorMuxMMIO(habilitarMuxMMIO_tb),
+	.dataBMM(dataBBM_tb),
+	.dataOutMM_IO()
 	
 );
 
@@ -87,7 +99,20 @@ initial begin
 	#0   hab_deco_tb <=0;
 	#0   in_deco_tb <=0;
 	#0   data_IO_tb <=0;
-	#10  hab_deco_tb <=0;
+	#0   habilitarMux_tb <=0;
+	#0   datoInMux_tb <=0;
+
+	#0   habilitarMuxMMIO_tb <=1;
+	#0   dataBBM_tb <=8'b11110000;
+
+
+	#30  datoInMux_tb <=15'b110011001010101;
+	#15  habilitarMux_tb <=1;
+	#30  datoInMux_tb <= 15'b111111100000000;
+	#25  habilitarMux_tb <=0;
+	#50  habilitarMux_tb <=0;
+
+	#1000  hab_deco_tb <=0;
 	#15  in_deco_tb <= 0;
 	#20  data_IO_tb <=8'b10101010;
 	#20  hab_deco_tb <=1;
