@@ -24,8 +24,12 @@
 module system
 #(parameter	clk_freq	= 50000000) 
 (
-	input		clk, rst,ack,
-	output	[3:0]	data
+	input		clk, rst,
+
+	output	[21:0]	mmd,
+	output	[3:0]	psr,
+	output	[9:0]	address,
+	output	[7:0]	data
 
 );
 /*Declaración de cables*/
@@ -59,12 +63,14 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 	.w_psr(w_psr),
 	.w_ir(w_ir),
 	.busA(w_bus_a),
-	.busB(w_bus_b)
+	.busB(w_bus_b),
+	.data(data)
 	);	
 
 	//Main Memory: Contiene las instrucciónes a ejecutar
 	main_memory mm(
 	.clk(clk),
+	.rst(w_rst),
 	.rd(w_mir[19]),
 	.wr(w_mir[18]),
 	.address(w_bus_a),
@@ -72,8 +78,9 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 	.data_out(w_data_mm)
 	);
 
-
-assign data=w_psr;
+assign address = w_bus_a[11:2];
+assign mmd=w_data_mm[21:0];
+assign psr=w_psr;
 assign w_rst=~rst;
 
 endmodule
