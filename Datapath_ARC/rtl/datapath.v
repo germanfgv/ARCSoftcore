@@ -8,6 +8,7 @@ input [31:0] data_MM, // Datos de la Main Memory que puede ingresar al bus C par
 output [31:0]	w_ir,
 		busA,
 		busB,
+output [7:0] data,
 output [3:0] w_psr
 );
 
@@ -512,6 +513,6 @@ Módulo que desplaza bits de aquel registro presente en el bus A
 
 	);
 
-
+assign data=w_data_reg[32*2+7:32*(2)];
 
 endmodule

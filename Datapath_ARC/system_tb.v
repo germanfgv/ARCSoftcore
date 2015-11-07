@@ -43,9 +43,7 @@ system #(
 	.clk_freq	(	clk_freq	)
 ) dut  (
 	.clk(	clk_tb	),
-	.rst(rst_tb),
-	.ack(w_ack)
-	
+	.rst(rst_tb)	
 );
 
 

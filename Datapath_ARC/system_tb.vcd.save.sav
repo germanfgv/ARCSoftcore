@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
-[*] Wed Oct 15 22:10:58 2014
+[*] Sat Nov  7 16:06:39 2015
 [*]
-[dumpfile] "/home/german/Dropbox/DATAPATH_VERILOG/Datapath_ARC/simulation/system_tb.vcd"
-[dumpfile_mtime] "Wed Oct 15 22:08:29 2014"
-[dumpfile_size] 13506659
-[savefile] "/home/german/Dropbox/DATAPATH_VERILOG/Datapath_ARC/system_tb.vcd.save.sav"
-[timestart] 1075500
-[size] 1307 744
+[dumpfile] "/home/german/Documents/Datapath_ARC/simulation/system_tb.vcd"
+[dumpfile_mtime] "Sat Nov  7 16:01:00 2015"
+[dumpfile_size] 13266098
+[savefile] "/home/german/Documents/Datapath_ARC/system_tb.vcd.save.sav"
+[timestart] 0
+[size] 1307 716
 [pos] 339 254
-*-17.000000 1360000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-22.000000 1890000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] system_tb.
 [treeopen] system_tb.dut.
 [treeopen] system_tb.dut.cs.
@@ -62,7 +62,7 @@ system_tb.dut.dapa.alu_1.busC[31:0]
 -group_end
 @200
 -Microinstrucción
-@c00025
+@c00024
 system_tb.dut.cs.cs.address[10:0]
 @28
 (0)system_tb.dut.cs.cs.address[10:0]
@@ -76,19 +76,30 @@ system_tb.dut.cs.cs.address[10:0]
 (8)system_tb.dut.cs.cs.address[10:0]
 (9)system_tb.dut.cs.cs.address[10:0]
 (10)system_tb.dut.cs.cs.address[10:0]
-@1401205
+@1401200
 -group_end
 @200
--Registros
-@22
-system_tb.dut.dapa.reg_1.dataout[31:0]
-system_tb.dut.dapa.reg_2.dataout[31:0]
-system_tb.dut.dapa.reg_3.dataout[31:0]
-@200
 -Main Memory
-@25
+@24
 system_tb.dut.mm.address[31:0]
 @28
 system_tb.dut.mm.rd
+@22
+system_tb.dut.mm.data_out[31:0]
+@200
+-Registros
+---r1
+@22
+system_tb.dut.dapa.reg_1.dataout[31:0]
+@200
+---r2
+@22
+system_tb.dut.dapa.reg_2.dataout[31:0]
+@200
+---r3
+@22
+system_tb.dut.dapa.reg_3.dataout[31:0]
+@23
+system_tb.dut.data[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
