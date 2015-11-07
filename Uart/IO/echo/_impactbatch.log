@@ -1,6 +1,6 @@
 iMPACT Version: Nov 18 2010 21:40:11
 
-iMPACT log file Started on Sat Nov  7 12:55:12 2015
+iMPACT log file Started on Sat Nov  7 17:32:34 2015
 
 Preference Table
 Name                 Setting             
@@ -19,10 +19,10 @@ SvfPlayDisplayComments false
 '1': Loading file 'system.bit' ...
 done.
 INFO:iMPACT:1777 - 
-   Reading /opt/Xilinx/12.4/ISE_DS/ISE/spartan3e/data/xc3s250e.bsd...
+   Reading /opt/Xilinx/12.4/ISE_DS/ISE/spartan3e/data/xc3s500e.bsd...
 INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
    but the original bitstream file remains unchanged.
-INFO:iMPACT:501 - '1': Added Device xc3s250e successfully.
+INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 
@@ -37,4 +37,4 @@ INFO:iMPACT:188 - '1': Programming completed successfully.
 LCK cycle: NoWait
 INFO:iMPACT - '1': Checking done pin....done.
 '1': Programmed successfully.
-Elapsed time =      0 sec.
+Elapsed time =      1 sec.

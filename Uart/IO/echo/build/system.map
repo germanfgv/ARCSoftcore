@@ -4,14 +4,14 @@ Xilinx Map Application Log File for Design 'system'
 Design Information
 ------------------
 Command Line   : map system.ngd 
-Target Device  : xc3s250e
+Target Device  : xc3s500e
 Target Package : vq100
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.52.76.2 $
-Mapped Date    : Sat Nov  7 12:55:04 2015
+Mapped Date    : Sat Nov  7 17:32:20 2015
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-INFO:Security:54 - 'xc3s250e' is a WebPack part.
+INFO:Security:54 - 'xc3s500e' is a WebPack part.
 WARNING:Security:42 - Your software subscription period has lapsed. Your current
 version of Xilinx tools will continue to function, but you no longer qualify for
 Xilinx software updates or new releases.
@@ -23,30 +23,36 @@ Running delay-based LUT packing...
 Running related packing...
 Updating timing models...
 Writing design file "system.ncd"...
-WARNING:PhysDesignRules:367 - The signal <clk_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <rst_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    2
+Number of warnings:    0
 Logic Utilization:
-  Number of 4 input LUTs:                 2 out of   4,896    1%
+  Number of Slice Flip Flops:           101 out of   9,312    1%
+  Number of 4 input LUTs:               153 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:              1 out of   2,448    1%
-    Number of Slices containing only related logic:       1 out of       1 100%
-    Number of Slices containing unrelated logic:          0 out of       1   0%
+  Number of occupied Slices:            108 out of   4,656    2%
+    Number of Slices containing only related logic:     108 out of     108 100%
+    Number of Slices containing unrelated logic:          0 out of     108   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:           2 out of   4,896    1%
-  Number of bonded IOBs:                  7 out of      66   10%
+  Total Number of 4 input LUTs:         161 out of   9,312    1%
+    Number used as logic:               147
+    Number used as a route-thru:          8
+    Number used for Dual Port RAMs:       6
+      (Two LUTs used per Dual Port RAM)
 
-Average Fanout of Non-Clock Nets:                1.00
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
 
-Peak Memory Usage:  145 MB
+  Number of bonded IOBs:                  9 out of      66   13%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                3.04
+
+Peak Memory Usage:  150 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 

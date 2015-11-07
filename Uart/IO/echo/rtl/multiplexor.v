@@ -15,8 +15,8 @@ output reg [T-1:0] dataout//Datos escogidos.
 always @(*) 
 	begin
 		case(selection)
-			0: dataout=datain[1:0];
-			1: dataout=datain[3:2];
+			0: dataout=datain[7:0];
+			1: dataout=datain[15:8];
 			default dataout=0;
 		endcase
 	end

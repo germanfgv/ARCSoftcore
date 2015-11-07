@@ -1,10 +1,10 @@
 Release 12.4 - Bitgen M.81d (lin)
 Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
-Loading device for application Rf_Device from file '3s250e.nph' in environment
+Loading device for application Rf_Device from file '3s500e.nph' in environment
 /opt/Xilinx/12.4/ISE_DS/ISE/.
-   "system" is an NCD, version 3.2, device xc3s250e, package vq100, speed -4
+   "system" is an NCD, version 3.2, device xc3s500e, package vq100, speed -4
 
-Sat Nov  7 12:55:10 2015
+Sat Nov  7 17:32:32 2015
 
 /opt/Xilinx/12.4/ISE_DS/ISE/bin/lin/unwrapped/bitgen -w system-routed.ncd system.bit 
 
@@ -86,13 +86,8 @@ Summary of Bitgen Options:
 No constraints file was processed.
 
 Running DRC.
-WARNING:PhysDesignRules:367 - The signal <clk_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <rst_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-DRC detected 0 errors and 2 warnings.  Please see the previously displayed
-individual error or warning messages for more details.
-INFO:Security:54 - 'xc3s250e' is a WebPack part.
+DRC detected 0 errors and 0 warnings.
+INFO:Security:54 - 'xc3s500e' is a WebPack part.
 WARNING:Security:42 - Your software subscription period has lapsed. Your current
 version of Xilinx tools will continue to function, but you no longer qualify for
 Xilinx software updates or new releases.

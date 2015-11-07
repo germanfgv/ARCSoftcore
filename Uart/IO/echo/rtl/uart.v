@@ -42,7 +42,7 @@ module uart
                 DVSR = 326,   // baud rate divisor
                               // DVSR = 50M/(16*baud rate)
                 DVSR_BIT = 9, // # bits of DVSR
-                FIFO_W = 8    // # addr bits of FIFO
+                FIFO_W = 3   // # addr bits of FIFO
                               // # words in FIFO=2^FIFO_W
    )
    (
@@ -50,7 +50,7 @@ module uart
     input wire rd_uart, wr_uart, rx,
     input wire [7:0] w_data,
     output wire tx_full, rx_empty, tx,
-    output wire [7:0] r_data,useless
+    output wire [7:0] r_data
    );
 
    // signal declaration

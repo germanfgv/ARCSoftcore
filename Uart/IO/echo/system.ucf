@@ -1,13 +1,17 @@
 # ==== Clock inputs (CLK) ====
 NET "clk" LOC = "P38" | IOSTANDARD = LVCMOS33 ; # GCLK10;
 NET "clk" PERIOD = 20 HIGH 50%;
-# ==== IO ====
+# ==== Bluetooth ports ====
 NET "rst" LOC = "P13" | IOSTANDARD = LVTTL;
-NET "dataOutALU_REGEN<0>" LOC = "P60" | IOSTANDARD = LVTTL;
-NET "dataOutALU_REGEN<1>" LOC = "P58" | IOSTANDARD = LVTTL;
-NET "selectorMuxIO" LOC = "P44" | IOSTANDARD = LVTTL;
-NET "selectorMuxMMIO" LOC = "P41" | IOSTANDARD = LVTTL;
-NET "selectorMuxALUCC" LOC = "P35" | IOSTANDARD = LVTTL;
+NET "tx" LOC = "P60" | IOSTANDARD = LVTTL;
+NET "rx" LOC = "P58" | IOSTANDARD = LVTTL;
+# ==== read write control signals ====
+NET "wr" LOC = "P2" | IOSTANDARD = LVTTL;
+NET "rd" LOC = "P3" | IOSTANDARD = LVTTL;
+# ==== Multiplexor control signals ====
+NET "selectorMuxIO" LOC = "P90" | IOSTANDARD = LVTTL;
+NET "selectorMuxMMIO" LOC = "P91" | IOSTANDARD = LVTTL;
+NET "selectorMuxALUCC" LOC = "P92" | IOSTANDARD = LVTTL;
 
 
 
