@@ -36,15 +36,15 @@ command3: ADDCC;
 
 reg : REG_R1 | REG_R2 | REG_R3 | REG_R4 | REG_R5 | REG_R6 | REG_R7
 	| REG_R8 | REG_R9 | REG_R10 | REG_R11 | REG_R12 | REG_R13
-	| REG_R14 | REG_R15 ; // Evaluar compresión de esta regla de gramática con el fin de construirlo genérico para el número de registros
+	| REG_R14 | REG_R15 ; /* Evaluar compresión de esta regla de gramática con el fin de construirlo genérico para el número de registros*/
 
-memloc : LEFT_SQ_BR NAME RIGHT_SQ_BR // Buscar el nombre en la tabla de símbolos para observar si ya ha sido declarado , de lo contrario arrojar error.
+memloc : LEFT_SQ_BR NAME RIGHT_SQ_BR /* Buscar el nombre en la tabla de símbolos para observar si ya ha sido declarado , de lo contrario arrojar error.*/
 
-init_addr: ORG INT ; //Revisar Casos en los cuales el usuario pueda ingresar direcciones de memoria no validas-.
+init_addr: ORG INT ; /*Revisar Casos en los cuales el usuario pueda ingresar direcciones de memoria no validas-.*/
 
-labelst: NAME COLON 2param_instr | NAME COLON 3param_instr; // Evaluar si etiqueta se puede posicionar en lugares sin instruccion
+labelst: NAME COLON 2param_instr | NAME COLON 3param_instr; /* Evaluar si etiqueta se puede posicionar en lugares sin instruccion*/
 
-varst: NAME COLON INT ; // Guardar Label value.OJO.
+varst: NAME COLON INT ; /* Guardar Label value.OJO. */
 
 
 %%
