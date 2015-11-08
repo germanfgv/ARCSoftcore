@@ -20,18 +20,12 @@ void yyerror(char* string);
 "."end		{return END;}
 "."org		{return ORG;}
 
-/*===============*/
-/*INSTRUCTION SET*/
-/*===============*/
+
 ld			{return LD;}
 add			{return ADD;}
 addcc		{return ADDCC;}
 st 			{return ST;}
 
-
-/*===============*/
-   /*REGISTERS*/
-/*===============*/
 "%"r1    { return REG_R1; }
 "%"r2    { return REG_R2; }
 "%"r3    { return REG_R3; }
@@ -48,15 +42,9 @@ st 			{return ST;}
 "%"r14   { return REG_R14; }
 "%"r15   { return REG_R15; }
 
-/*===============*/
-/*NAMES AND INTS */
-/*===============*/
 [_a-zA-Z][_a-zA-Z0-9]*		{return NAME;}	
 [0-9]+						{return INT;}
 
-/*====================/
-/*SPECIAL CHARACTERS */
-/*===================*/
 ","      { return COMMA; }
 ":"      { return COLON; }
 ";"      { return SEMICOLON; }
