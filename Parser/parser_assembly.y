@@ -22,11 +22,11 @@
 
 %%
 
-instr:  3param_instr | 2param_instr | init_addr | varst | labelst;
+instr:  param_instr_3 | param_instr_2 | init_addr | varst | labelst;
  
-2param_instr: command operand COMMA operand ;
+param_instr_2: command operand COMMA operand ;
 
-3param_instr: command3 operand COMMA operand COMMA operand ;
+param_instr_3: command3 operand COMMA operand COMMA operand ;
 
 operand: reg | memloc ;
 
@@ -42,7 +42,7 @@ memloc : LEFT_SQ_BR NAME RIGHT_SQ_BR /* Buscar el nombre en la tabla de símbolo
 
 init_addr: ORG INT ; /*Revisar Casos en los cuales el usuario pueda ingresar direcciones de memoria no validas-.*/
 
-labelst: NAME COLON 2param_instr | NAME COLON 3param_instr; /* Evaluar si etiqueta se puede posicionar en lugares sin instruccion*/
+labelst: NAME COLON param_instr_2 | NAME COLON param_instr_3; /* Evaluar si etiqueta se puede posicionar en lugares sin instruccion*/
 
 varst: NAME COLON INT ; /* Guardar Label value.OJO. */
 
