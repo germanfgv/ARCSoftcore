@@ -27,12 +27,14 @@ module system
 	input		clk, rst, 
 	input       wr,rd, rx,
 	input       selectorMuxIO, selectorMuxMMIO,selectorMuxALUCC,
-    output      tx
+    output      tx, 
+    output [7:0] lectura
 
 );
 /*Declaración de cables*/
 	wire [7:0] dataOutMuxIO,dataOutMM_IO, dataUART;
 	wire stateTX,stateRX;
+	wire debRd, debWr;
 
 /*Decaración demódulos*/
 
@@ -43,10 +45,10 @@ module system
 	uart uart_master(
     	.clk(clk), 
 		.reset(w_rst),
-    	.rd_uart(rd),
-		.wr_uart(wr), 
+    	.rd_uart(debRd),
+		.wr_uart(debWr), 
 		.rx(rx),
-    	.w_data(dataOutALU_REGEN),
+    	.w_data(lectura),
     	.tx_full(stateTX), 
 		.rx_empty(stateRX), 
 		.tx(tx),
@@ -68,8 +70,16 @@ module system
 	multiplexor muxer_ALU_CC (
 		.selection(selectorMuxALUCC),
 		.datain({dataOutMM_IO,8'b01011000}),
-		.dataout(dataOutALU_REGEN)
+		.dataout(lectura)
 		);
+
+	debounce debRD(
+		.clk(clk), .reset(w_rst), .sw(rd), .db_tick(debRd), .db_level()
+	);
+
+	debounce debWR(
+		.clk(clk), .reset(w_rst), .sw(wr), .db_tick(debWr), .db_level()
+	);
 
 assign  w_rst = ~rst;
 endmodule

@@ -31,8 +31,9 @@ parameter clk_freq = 1000000000 / tck; // Frequenzy in HZ
 //----------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------
-reg        	clk_tb,w_wr,w_rd;
+reg        	clk_tb;
 reg        	rst_tb;
+reg 	wr_tb, rd_tb, rx_tb, sIO_tb, sMM_IO_tb, sM_ALU_tb;
 reg	   	w_ack;
 wire       	led_tb;
 reg	[7:0]   w_data, data_IO_tb,dataBBM_tb;
@@ -44,6 +45,9 @@ reg	[4:0]	in_deco_tb;
 reg habilitarMux_tb,habilitarMuxMMIO_tb;
 reg [15:0] datoInMux_tb;
 
+wire w_tx;
+wire [7:0] w_lectura;
+
 
 
 //----------------------------------------------------------------------------
@@ -54,24 +58,14 @@ system #(
 ) dut  (
 	.clk(	clk_tb	),
 	.rst(rst_tb),
-	.denv(w_data),
-	.drec(),
-	.wr(w_wr),
-	.rd(w_rd),
-	.habilitarDecodificador(hab_deco_tb),
-	.entradaDecodificador(in_deco_tb),
-	.data_IO(data_IO_tb),
-	.salidaMemoriaR(),
-
-
-	.selectorMuxIO(habilitarMux_tb),
-	.dataMuxIO(datoInMux_tb),
-	.dataOutMuxIO(),
-
-	.selectorMuxMMIO(habilitarMuxMMIO_tb),
-	.dataBMM(dataBBM_tb),
-	.dataOutMM_IO()
-	
+	.wr(wr_tb),
+	.rd(rd_tb),
+	.rx(rx_tb),
+	.selectorMuxIO(sIO_tb),
+	.selectorMuxMMIO(sMM_IO_tb),
+	.selectorMuxALUCC(sM_ALU_tb),
+	.tx(w_tx),
+	.lectura(w_lectura)
 );
 
 
@@ -94,35 +88,29 @@ initial begin
 	
 	//$dumpvars(-1,clk_tb,rst_tb);
 	#0   rst_tb <= 0;
-	#0   w_wr   <= 0; 
-	#0   w_rd   <= 0;
-	#0   hab_deco_tb <=0;
-	#0   in_deco_tb <=0;
-	#0   data_IO_tb <=0;
-	#0   habilitarMux_tb <=0;
-	#0   datoInMux_tb <=0;
+	#0   wr_tb   <= 0; 
+	#0   rd_tb   <= 0;
+	#0	 rx_tb <= 1;
+	#0 	 sIO_tb <= 0;
+	#0 	 sMM_IO_tb <= 0;
+	#0 	 sM_ALU_tb <= 0;
 
-	#0   habilitarMuxMMIO_tb <=1;
-	#0   dataBBM_tb <=8'b11110000;
+	#20   rst_tb <= 1;
+	#20   rst_tb <= 0;
 
+	#20 	sIO_tb <= 1; 
+	#20 	sMM_IO_tb <= 1;
+	#20		sM_ALU_tb <= 1;
 
-	#30  datoInMux_tb <=15'b110011001010101;
-	#15  habilitarMux_tb <=1;
-	#30  datoInMux_tb <= 15'b111111100000000;
-	#25  habilitarMux_tb <=0;
-	#50  habilitarMux_tb <=0;
+	#20 	sIO_tb <= 0;
 
-	#1000  hab_deco_tb <=0;
-	#15  in_deco_tb <= 0;
-	#20  data_IO_tb <=8'b10101010;
-	#20  hab_deco_tb <=1;
-	#20  hab_deco_tb <=0;
-	#20  data_IO_tb <=8'b11110000;
-	#20  in_deco_tb <=1;	
-	#20  hab_deco_tb <=1;
-	#20  hab_deco_tb <=0;
+	#50 	rx_tb <= 0;
+	#200 	rx_tb <= 1;
 
+	#50		rd_tb <= 1;
+	#5000 	rd_tb <= 0;
 
+	#200 	sIO_tb <= 1; 
 
 
 	
