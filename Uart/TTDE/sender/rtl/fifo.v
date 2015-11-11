@@ -88,8 +88,6 @@ module fifo
       w_ptr_succ = w_ptr_reg + 1;
       r_ptr_succ = r_ptr_reg + 1;
       // default: keep old values
-      w_ptr_next = w_ptr_succ;
-      r_ptr_next = r_ptr_succ;
       w_ptr_next = w_ptr_reg;
       r_ptr_next = r_ptr_reg;
       full_next = full_reg;

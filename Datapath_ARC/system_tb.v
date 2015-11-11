@@ -43,9 +43,7 @@ system #(
 	.clk_freq	(	clk_freq	)
 ) dut  (
 	.clk(	clk_tb	),
-	.rst(rst_tb),
-	.ack(w_ack)
-	
+	.rst(rst_tb)	
 );
 
 
@@ -67,10 +65,10 @@ initial begin
 	//$dumpvars(-1,clk_tb,rst_tb,led_tb, dut);
 	
 	//$dumpvars(-1,clk_tb,rst_tb);
-	#0  rst_tb <= 0;
+	#0  rst_tb <= 1;
 	#0  w_ack <=0; 
-	#80  rst_tb <= 1; 
-	#145 rst_tb <= 0;
+	#80  rst_tb <= 0; 
+	#145 rst_tb <= 1;
 	#200 w_ack <=1;
 	#40 w_ack <=0;
 	#200 w_ack <=1;

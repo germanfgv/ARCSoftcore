@@ -1,10 +1,14 @@
-module datapath(
+module datapath #(
+parameter R=16 //Número de registros de proposito general
+)
+(
 input clk,rst,
 input [40:0] mir,
 input [31:0] data_MM, // Datos de la Main Memory que puede ingresar al bus C para que sean escritos en los registros
 output [31:0]	w_ir,
 		busA,
 		busB,
+output [7:0] data,
 output [3:0] w_psr
 );
 
@@ -12,35 +16,37 @@ output [3:0] w_psr
 /* 
 Declaración de cables
 */
-wire [5:0]		w_mux_a,   //Cable que conecta el multiplex A con el decoder A
-			w_mux_b,   //Cable que conecta el multiplex B con el decoder B
-			w_dec_c;   //Cable que conecta el multiplex C con el decoder C
+wire [5:0]	w_mux_a,   //Cable que conecta el multiplex A con el decoder A
+		w_mux_b,   //Cable que conecta el multiplex B con el decoder B
+		w_dec_c;   //Cable que conecta el multiplex C con el decoder C
 
-wire [3:0]		w_flags;     //Vector de flags de la ALU
+wire [3:0]	w_flags;     //Vector de flags de la ALU
 
 
-wire [31:0]		w_bus_a,
-			w_data_alu,
-			w_data_shifter,
-			w_bus_b,
-			w_bus_c;     //Bus usado para escribir en los registros
+wire [31:0]	w_bus_a,
+		w_data_alu,
+		w_data_shifter,
+		w_bus_b,
+		w_bus_c;     //Bus usado para escribir en los registros
 
 
 
 wire [37:0]		w_writer;  //Señal de escritura para los registros
 
 
-wire [(32*38-1):0] 	w_data_reg; //Bus que concatena la salida de todos los registros
+wire [(32*(R+6)-1):0] 	w_data_reg; //Bus que concatena la salida de todos los registros
 
 wire [31:0]		w_data_ir;  //Datos del Instruction register	 
 
+wire [4:0]		w_auxiliar_a,
+			w_auxiliar_b; 
 
-	//Asignaciones combinacionales
+//Asignaciones combinacionales
 
-	assign w_data_reg[38*32-1:37*32]=w_data_ir;
-	assign w_ir=w_data_ir;
-	assign busA = w_bus_a;
-	assign busB = w_bus_b;
+assign w_data_reg[(R+6)*32-1:(R+5)*32]=w_data_ir;
+assign w_ir=w_data_ir;
+assign busA = w_bus_a;
+assign busB = w_bus_b;
 
 /* Declaración de registros
 */
@@ -171,133 +177,133 @@ assign w_data_reg[31:0] = 0;
 		.dataout(w_data_reg[32*(16)-1:32*(15)])
 		);
 
-	registro reg_16(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[16]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(17)-1:32*(16)])
-		);
+//	registro reg_16(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[16]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(17)-1:32*(16)])
+//		);
 
-	registro reg_17(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[17]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(18)-1:32*(17)])
-		);
+//	registro reg_17(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[17]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(18)-1:32*(17)])
+//		);
 
-	registro reg_18(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[18]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(19)-1:32*(18)])
-		);
+//	registro reg_18(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[18]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(19)-1:32*(18)])
+//		);
 
-	registro reg_19(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[19]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(20)-1:32*(19)])
-		);
+//	registro reg_19(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[19]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(20)-1:32*(19)])
+//		);
 
-	registro reg_20(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[20]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(21)-1:32*(20)])
-		);
+//	registro reg_20(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[20]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(21)-1:32*(20)])
+//		);
 
-	registro reg_21(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[21]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(22)-1:32*(21)])
-		);
+//	registro reg_21(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[21]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(22)-1:32*(21)])
+//		);
 
-	registro reg_22(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[22]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(23)-1:32*(22)])
-		);
+//	registro reg_22(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[22]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(23)-1:32*(22)])
+//		);
 
-	registro reg_23(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[23]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(24)-1:32*(23)])
-		);
+//	registro reg_23(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[23]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(24)-1:32*(23)])
+//		);
 
-	registro reg_24(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[24]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(25)-1:32*(24)])
-		);
+//	registro reg_24(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[24]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(25)-1:32*(24)])
+//		);
 
-	registro reg_25(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[25]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(26)-1:32*(25)])
-		);
+//	registro reg_25(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[25]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(26)-1:32*(25)])
+//		);
 
-	registro reg_26(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[26]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(27)-1:32*(26)])
-		);
+//	registro reg_26(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[26]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(27)-1:32*(26)])
+//		);
 
-	registro reg_27(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[27]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(28)-1:32*(27)])
-		);
+//	registro reg_27(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[27]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(28)-1:32*(27)])
+//		);
 
-	registro reg_28(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[28]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(29)-1:32*(28)])
-		);
+//	registro reg_28(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[28]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(29)-1:32*(28)])
+//		);
 
-	registro reg_29(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[29]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(30)-1:32*(29)])
-		);
+//	registro reg_29(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[29]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(30)-1:32*(29)])
+//		);
 
-	registro reg_30(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[30]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(31)-1:32*(30)])
-		);
+//	registro reg_30(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[30]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(31)-1:32*(30)])
+//		);
 
-	registro reg_31(
-		.rst(rst),			
-		.clk(clk),
-		.writer(w_writer[31]),
-		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(32)-1:32*(31)])
-		);
+//	registro reg_31(
+//		.rst(rst),			
+//		.clk(clk),
+//		.writer(w_writer[31]),
+//		.datain(w_bus_c),
+//		.dataout(w_data_reg[32*(32)-1:32*(31)])
+//		);
 
 
 //	genvar i;
@@ -318,9 +324,9 @@ assign w_data_reg[31:0] = 0;
 	registro pc(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[32]),
+		.writer(w_writer[R+16]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[1055:1024])
+		.dataout(w_data_reg[32*(R+1)-1:32*(R)])
 		);
 	
 	
@@ -330,35 +336,35 @@ assign w_data_reg[31:0] = 0;
 	registro temp_0(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[0+33]),
+		.writer(w_writer[R+1+16]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(0+34)-1:32*(0+33)])
+		.dataout(w_data_reg[32*(R+2)-1:32*(R+1)])
 		);
 
 	registro temp_1(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[1+33]),
+		.writer(w_writer[R+2+16]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(1+34)-1:32*(1+33)])
+		.dataout(w_data_reg[32*(R+3)-1:32*(R+2)])
 		);
 
 
 	registro temp_2(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[2+33]),
+		.writer(w_writer[R+3+16]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(2+34)-1:32*(2+33)])
+		.dataout(w_data_reg[32*(R+4)-1:32*(R+3)])
 		);
 
 
 	registro temp_3(
 		.rst(rst),
 		.clk(clk),
-		.writer(w_writer[3+33]),
+		.writer(w_writer[R+4+16]),
 		.datain(w_bus_c),
-		.dataout(w_data_reg[32*(3+34)-1:32*(3+33)])
+		.dataout(w_data_reg[32*(R+5)-1:32*(R+4)])
 		);
 
 
@@ -382,7 +388,7 @@ assign w_data_reg[31:0] = 0;
 	registro ir(
 		.rst(rst),	
 		.clk(clk),
-		.writer(w_writer[37]),
+		.writer(w_writer[R+5+16]),
 		.datain(w_bus_c),
 		.dataout(w_data_ir)
 		);
@@ -416,26 +422,33 @@ assign w_data_reg[31:0] = 0;
 		.z(w_dec_c)
 	);
 	
+	assign w_auxiliar_a = (w_mux_a<16) ? w_mux_a : w_mux_a-6'b010000;
+	
+
+	assign w_auxiliar_b = (w_mux_b<16) ? w_mux_b : w_mux_b-6'b010000;
+
+
+
 	//multiplexores de selección de registro: Multiplexan los valores de los registros para escoger los datos que 	iran a los buses A y B
 
 	multiplexor #(
-		.N(38), //Número de señales de entrada
+		.N(22), //Número de señales de entrada
 		.M(32), //Número de bits señal de entrada
-		.P(6)   //Número de bits de la señal de selección
+		.P(5)   //Número de bits de la señal de selección
 		)
 	selectionA(
-		.selection(w_mux_a),
+		.selection(w_auxiliar_a),
 		.datain(w_data_reg),
 		.dataout(w_bus_a)
 		);
 
 	multiplexor #(
-		.N(38), //Número de señales de entrada
+		.N(22), //Número de señales de entrada
 		.M(32), //Número de bits señal de entrada
-		.P(6)   //Número de bits de la señal de selección
+		.P(5)   //Número de bits de la señal de selección
 		)
 	selectionB(
-		.selection(w_mux_b),
+		.selection(w_auxiliar_b),
 		.datain(w_data_reg),
 		.dataout(w_bus_b)
 		);
@@ -454,6 +467,8 @@ assign w_data_reg[31:0] = 0;
 
 Este módulo envia la señal que habilita la escritura de los datos del bus C en los registros
 */
+
+
 	decoder dec_c(
 		.seleccion(w_dec_c),
 		.habilitador(w_writer)
@@ -498,6 +513,6 @@ Módulo que desplaza bits de aquel registro presente en el bus A
 
 	);
 
-
+assign data=w_data_reg[32*2+7:32*(2)];
 
 endmodule
