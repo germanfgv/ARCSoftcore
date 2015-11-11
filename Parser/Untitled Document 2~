@@ -1,0 +1,26 @@
+#MAKEFILE
+
+
+LEX = flex 
+YACC = bison -d
+CC = gcc
+
+# calc is the final object that we will generate, it is produced by
+# the C compiler from the y.tab.o and from the lex.yy.o
+
+calc: y.tab.o lex.yy.o
+	$(CC) -o calc parser_assembly.tab.o lex.yy.o -ll -lm 
+
+
+lex.yy.o: lex.yy.c parser_assembly.tab.h
+lex.yy.o parser_assembly.tab.o: calc.h
+
+
+parser_assembly.tab.c parser_assembly.tab.h: parser_assembly.y
+	$(YACC) -v parser_assembly.y
+
+lex.yy.c: scan_assembly.l
+	$(LEX) scan_assembly.l
+
+clean:
+	-rm -f *.o lex.yy.c *.tab.*  calc *.output

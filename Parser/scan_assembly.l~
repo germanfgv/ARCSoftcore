@@ -6,7 +6,7 @@
 int lineno =1;
 void yyerror(char* s);
 // KEYWORDS
-    #define BEGIN   	258	
+    #define BEGIN   	1	
     #define END  	2	
     #define ORG 	3	
     #define LD   	4	
