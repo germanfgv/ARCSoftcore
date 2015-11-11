@@ -74,11 +74,11 @@ module system
 		);
 
 	debounce debRD(
-		.clk(clk), .reset(w_rst), .sw(rd), .db_tick(debRd), .db_level()
+		.clk(clk), .reset(rst), .sw(rd), .db_tick(debRd), .db_level()
 	);
 
 	debounce debWR(
-		.clk(clk), .reset(w_rst), .sw(wr), .db_tick(debWr), .db_level()
+		.clk(clk), .reset(rst), .sw(wr), .db_tick(debWr), .db_level()
 	);
 
 assign  w_rst = ~rst;

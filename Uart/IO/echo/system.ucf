@@ -12,6 +12,13 @@ NET "rd" LOC = "P3" | IOSTANDARD = LVTTL;
 NET "selectorMuxIO" LOC = "P90" | IOSTANDARD = LVTTL;
 NET "selectorMuxMMIO" LOC = "P91" | IOSTANDARD = LVTTL;
 NET "selectorMuxALUCC" LOC = "P92" | IOSTANDARD = LVTTL;
-
-
+# ==== Multiplexor control signals ====
+NET "lectura<0>" LOC = "P10" | IOSTANDARD = LVTTL;
+NET "lectura<1>" LOC = "P11" | IOSTANDARD = LVTTL;
+NET "lectura<2>" LOC = "P12" | IOSTANDARD = LVTTL;
+NET "lectura<3>" LOC = "P15" | IOSTANDARD = LVTTL;
+NET "lectura<4>" LOC = "P16" | IOSTANDARD = LVTTL;
+NET "lectura<5>" LOC = "P17" | IOSTANDARD = LVTTL;
+NET "lectura<6>" LOC = "P18" | IOSTANDARD = LVTTL;
+NET "lectura<7>" LOC = "P23" | IOSTANDARD = LVTTL;
 

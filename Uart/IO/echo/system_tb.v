@@ -105,7 +105,7 @@ initial begin
 	#20 	sIO_tb <= 0;
 
 	#50 	rx_tb <= 0;
-	#200 	rx_tb <= 1;
+	#2000000 	rx_tb <= 1;
 
 	#50		rd_tb <= 1;
 	#5000 	rd_tb <= 0;

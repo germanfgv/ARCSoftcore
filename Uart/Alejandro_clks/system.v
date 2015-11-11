@@ -65,13 +65,15 @@ wire empty_uload;
 wire tx_clk;
 wire rx_clk;
 
+wire nreset = ~reset;
+
 wire [7:0] data;
 
 /*Decaración de módulos*/
 
 	//UART a probar 
 	uart uart_1(
-	.reset(reset)       		   ,
+	.reset(nreset)       		   ,
 	.txclk(tx_clk)        	  	   ,
 	.ld_tx_data(1)        ,
 	.tx_data(data)              ,
@@ -92,7 +94,7 @@ wire [7:0] data;
 			)
 		counter_tx
 		(
-    	.clk(clk), .reset(reset),
+    	.clk(clk), .reset(nreset),
     	.max_tick(tx_clk)
    		);
 
@@ -101,7 +103,7 @@ wire [7:0] data;
 			)
 		counter_rx
 		(
-    	.clk(clk), .reset(reset),
+    	.clk(clk), .reset(nreset),
     	.max_tick(rx_clk)
    		);
 

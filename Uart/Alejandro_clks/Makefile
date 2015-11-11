@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #/
 
-FPGA_SIZE=100
+FPGA_SIZE=500
 VINCDIR=					\
 	-I../rtl 				
 SYN_SRC=

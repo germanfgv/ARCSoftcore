@@ -5,7 +5,7 @@ run
 -opt_mode AREA
 -opt_level 2
 -ofn system.ngc
--p xc3S100e-VQ100-4
+-p xc3S500e-VQ100-4
 -register_balancing yes
 -rtlview yes
 
