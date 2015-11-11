@@ -1,3 +1,0 @@
-verilog work ../system.v
-verilog work ../rtl/counter.v
-verilog work ../rtl/uart/uart.v

@@ -1,3 +1,0 @@
-../system.v
-../rtl/uart/uart.v
-system_tb.v

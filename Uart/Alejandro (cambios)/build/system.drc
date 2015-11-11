@@ -1,8 +1,0 @@
-Release 12.4 Drc M.81d (lin)
-Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
-
-Mon Oct  5 12:03:42 2015
-
-drc -z system-routed.ncd
-
-DRC detected 0 errors and 0 warnings.
