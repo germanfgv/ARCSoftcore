@@ -5,39 +5,6 @@
 
 int lineno =1;
 void yyerror(char* s);
-// KEYWORDS
-    #define BEGIN   	258	
-    #define END  	2	
-    #define ORG 	3	
-    #define LD   	4	
-    #define ADD 	5
-    #define ADDCC   	6	
-    #define ST  	7	
-    #define ORG 	8	
-    #define REG_R1  	9	
-    #define REG_R2 	10
-    #define REG_R3  	11	
-    #define REG_R4 	12
-    #define REG_R5  	13	
-    #define REG_R6 	14
-    #define REG_R7  	15	
-    #define REG_R8 	16
-    #define REG_R9  	17	
-    #define REG_R10 	18
-    #define REG_R11  	19	
-    #define REG_R12 	20
-    #define REG_R13  	21	
-    #define REG_R14 	22
-    #define REG_R15  	23
-    #define INT  	24	
-    #define COMMA 	25
-    #define COLON  	26	
-    #define SEMICOLON 27
-    #define LEFT_SQ_BRACKET  	28	
-    #define RIGHT_SQ_BRACKET 	29
-    #define NAME  	30	
-
-
 
 %}
 
@@ -48,31 +15,28 @@ void yyerror(char* s);
 "!".*			{}
 [ \r\t]+		{}
 
-"."begin	{return BEGIN;}
-"."end		{return END;}
+
+
 "."org		{return ORG;}
-
-
-ld			{return LD;}
-add			{return ADD;}
+ld		{return LD;}
+add		{return ADD;}
 addcc		{return ADDCC;}
-st 			{return ST;}
-
-"%"r1    { return REG_R1; }
-"%"r2    { return REG_R2; }
-"%"r3    { return REG_R3; }
-"%"r4    { return REG_R4; }
-"%"r5    { return REG_R5; }
-"%"r6    { return REG_R6; }
-"%"r7    { return REG_R7; }
-"%"r8    { return REG_R8; }
-"%"r9    { return REG_R9; }
-"%"r10   { return REG_R10; }
-"%"r11   { return REG_R11; }
-"%"r12   { return REG_R12; }
-"%"r13   { return REG_R13; }
-"%"r14   { return REG_R14; }
-"%"r15   { return REG_R15; }
+st 		{return ST;}
+r1    { return REG_R1; }
+r2    { return REG_R2; }
+r3    { return REG_R3; }
+r4    { return REG_R4; }
+r5    { return REG_R5; }
+r6    { return REG_R6; }
+r7    { return REG_R7; }
+r8    { return REG_R8; }
+r9    { return REG_R9; }
+r10   { return REG_R10; }
+r11   { return REG_R11; }
+r12   { return REG_R12; }
+r13   { return REG_R13; }
+r14   { return REG_R14; }
+r15   { return REG_R15; }
 
 [_a-zA-Z][_a-zA-Z0-9]*		{return NAME;}	
 [0-9]+						{return INT;}
@@ -80,8 +44,8 @@ st 			{return ST;}
 ","      { return COMMA; }
 ":"      { return COLON; }
 ";"      { return SEMICOLON; }
-"["		 { return LEFT_SQ_BRACKET;}
-"]"		 { return RIGHT_SQ_BRACKET;}
+"["	{ return LEFT_SQ_BR;}
+"]"	{ return RIGHT_SQ_BR;}
 
 \n 		 lineno++;
 .        { yyerror("syntax error");}
