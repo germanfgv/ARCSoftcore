@@ -28,7 +28,8 @@ module system
 	input       wr,rd, rx,
 	input       selectorMuxIO, selectorMuxMMIO,selectorMuxALUCC,
     output      tx, 
-    output [7:0] lectura
+    output [7:0] lectura,
+    output reloj
 
 );
 /*Declaración de cables*/
@@ -82,4 +83,5 @@ module system
 	);
 
 assign  w_rst = ~rst;
+assign reloj = clk;
 endmodule

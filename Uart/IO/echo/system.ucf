@@ -21,4 +21,6 @@ NET "lectura<4>" LOC = "P3" | IOSTANDARD = LVTTL;
 NET "lectura<5>" LOC = "P90" | IOSTANDARD = LVTTL;
 NET "lectura<6>" LOC = "P91" | IOSTANDARD = LVTTL;
 NET "lectura<7>" LOC = "P92" | IOSTANDARD = LVTTL;
+# ==== Prueba reloj ====
+NET "reloj" LOC = "P10" | IOSTANDARD = LVTTL;
 
