@@ -9,17 +9,15 @@ output [3:0] psr		// Bits para banderas de Carry, Negative, Overflow, Zero.
 
 wire  neg,zero,ov;		// Flags negative, zero y overflow
 wire carry;			// flag carry
-wire [31:0] variover; 		//Variables usadas en la determinación de las flags
-wire [31:0] varicarry;
+wire [31:0] addition;		// Variable usada para la operación suma y para determinar las flags
 wire caover;
 
 /*Flags*/
-assign variover=busA[30:0]+busB[30:0]; 	//Determinación de carry del bit número 30
-assign caover=variover[31];		//Determinación de carry del bit número 30
-assign {carry,varicarry}=busA+busB;	//Determinación de la flag Carry y la suma de busA y busB
-assign neg=busC[31];			//Determinación de la flag Neg 
-assign ov=caover^carry;			//Determinación de la flag Ov a partir de la flag Carry y el carry del bit 30
-assign zero=(busC==0) ? 1 : 0;		//Determinación de la flag Zero
+assign {caover,addition[30:0]}=busA[30:0]+busB[30:0]; 	//Determinación de carry del bit número 30
+assign {carry,addition[31]}=busA[31]+busB[31]+caover;	//Determinación de la flag Carry y la suma de busA y busB
+assign neg=busC[31];									//Determinación de la flag Neg 
+assign ov=caover^carry;									//Determinación de la flag Ov a partir de la flag Carry y el carry del bit 30
+assign zero=(busC==0) ? 1 : 0;							//Determinación de la flag Zero
 
 		
 
@@ -31,7 +29,7 @@ case(func)
 	0:busC=busA&busB;	//ANDCC
 	1:busC=busA|busB;	//ORCC
 	2:busC=~(busA|busB);	//NORCC
-	3:busC=varicarry;	//ADDCC
+	3:busC=addition;	//ADDCC
 	4:busC=busA;		//SRL(Shift Right Logical)
 	5:busC=busA&busB;	//AND
 	6:busC=busA|busB;	//OR

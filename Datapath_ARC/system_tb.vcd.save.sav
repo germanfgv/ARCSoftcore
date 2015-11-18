@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
-[*] Sat Nov  7 16:06:39 2015
+[*] Sat Nov  7 16:51:44 2015
 [*]
 [dumpfile] "/home/german/Documents/Datapath_ARC/simulation/system_tb.vcd"
-[dumpfile_mtime] "Sat Nov  7 16:01:00 2015"
-[dumpfile_size] 13266098
+[dumpfile_mtime] "Sat Nov  7 16:45:04 2015"
+[dumpfile_size] 14811932
 [savefile] "/home/german/Documents/Datapath_ARC/system_tb.vcd.save.sav"
 [timestart] 0
 [size] 1307 716
 [pos] 339 254
-*-22.000000 1890000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-22.000000 7650000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] system_tb.
 [treeopen] system_tb.dut.
 [treeopen] system_tb.dut.cs.
@@ -89,17 +89,24 @@ system_tb.dut.mm.data_out[31:0]
 @200
 -Registros
 ---r1
-@22
+@420
 system_tb.dut.dapa.reg_1.dataout[31:0]
 @200
 ---r2
-@22
+@23
 system_tb.dut.dapa.reg_2.dataout[31:0]
 @200
 ---r3
-@22
+@420
 system_tb.dut.dapa.reg_3.dataout[31:0]
-@23
+@200
+---r4
+@420
+system_tb.dut.dapa.reg_4.dataout[31:0]
+@200
+---r5
+@420
+system_tb.dut.dapa.reg_5.dataout[31:0]
 system_tb.dut.data[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -7,7 +7,7 @@ input 	clk,rst,
 output reg [31:0] data_out
 );
 /* Declaración de registro de la main memory. Esta contener hasta 2³² registros. Para este ejemplo se utilizaran solo 32 registros*/
-reg [31:0] data0,data1,data2,data3,data4,data5,data6,data7,data8,data2048,
+reg [31:0] data0,data1,data2,data3,data4,data5,data6,data7,data8,data12,data16,data2048,
 data2049,data2050,data2051,data2052,data2053,data2054,data2055,data2056,
 data2057,data2058,data2059,data2060,data2061,data2062,data2063,data2064,
 data2065,data2066,data2067,data2068,data2069,data2070,data2071,data2072,
@@ -40,17 +40,19 @@ initial
 
 
 //Add registros 1 y 2 y guarda en 3
-//		data0=32'b11000010000000000010000000000001;
-//		data1=32'b00000000000000000000000010101010;
-//		data4=32'b11000100000000000010000000000101;
-//		data5=32'b10000000000000000000000001010101;
-//		data8=32'b10000110100000000100000000000010;
-//		data12=32'hc620201F;
-//		data16=32'b00001100100000000000000000000000;
+		data2048=32'b10000001110000000010100000000000;
+		data1=32'b01111111111111111111111111111111;
+		data2052=32'b11000100000000000010000000000101;
+		data5=32'b00000000000000000000000000000101;
+		data2056=32'b10000110100000000100000000000010;
+		data2060=32'hc620201F;
+		data2064=32'h81c3e810;
+
+
 
 
 //Sumar los números de un array
-		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
+/*		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
 		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
 		data2056=32'h8688c000; // ANDCC setting r3 to cero
 		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
@@ -68,7 +70,7 @@ initial
 		data2108=32'h00000004; // 4
 		data2112=32'h00000006; // 6
 		data2116=32'hfffffff1; // -15
-		data2120=32'h81c3e828; // jump a 2088
+		data2120=32'h81c3e828; // jump a 2088*/
 
 
 ////Fibonacci
@@ -90,57 +92,16 @@ always@(posedge clk)
 begin
 if(rst)
 begin
-//Shift right logic: 5 el registro 1 y lo guarda en 3
-//		data0=32'b11000010000000000010000000000001;
-//		data1=32'b00000000000000000000000010101010;
-//		data4=32'b11000100000000000010000000000101;
-//		data5=32'b00000000000000000000000000000101;
-//		data8=32'b10000111001100000100000000000010;
-//		data12=32'b00001100100000000000000000000000;
-
 //Add registros 1 y 2 y guarda en 3
-//		data0=32'b11000010000000000010000000000001;
-//		data1=32'b00000000000000000000000010101010;
-//		data4=32'b11000100000000000010000000000101;
-//		data5=32'b10000000000000000000000001010101;
-//		data8=32'b10000110100000000100000000000010;
-//		data12=32'hc620201F;
-//		data16=32'b00001100100000000000000000000000;
-
-//Sumar los números de un array
-		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
-		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
-		data2056=32'h8688c000; // ANDCC setting r3 to cero
-		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
-		data2064=32'h02800018; // Branch si la flag Z está en 1 (no hay elementos restantes), lo cual redirige a la subrutina Done
-		data2068=32'h82807ffc; // Se resta 4 a r1 disminuyendo en 4 el número de bytes restantes
-		data2072=32'h88804002; // ADDCC r1 y r2 calculando la dirección de memoria del elemento a sumar y almacena en r4
-		data2076=32'hca010000; // load de la dirección r4 a r5
-		data2080=32'h8680c005; //ADDCC r3 y r5 sumando al acumulador un nuevo elemento
-		data2084=32'h10bfffe8; //Recomienza el loop volviendo a 2060
-		data2088=32'h81c3e848; // jump a 2120 (Inicia loop infinito)
-		data2092=32'h00000014;
-		data2096=32'h00000834;  
-		data2100=32'h0000001e; // 30
-		data2104=32'hffffffd3; // -45
-		data2108=32'h00000034; // 52
-		data2112=32'h00000026; // 38
-		data2116=32'hfffffff1; // -15
-		data2120=32'h81c3e828; // jump a 2088
+		data2048=32'b10000001110000000010100000000000;
+		data1=32'b01111111111111111111111111111111;
+		data2052=32'b11000100000000000010000000000101;
+		data5=32'b00000000000000000000000000000101;
+		data2056=32'b10000110100000000100000000000010;
+		data2060=32'hc620201F;
+		data2064=32'h81c3e810;
 
 
-////Fibonacci
-//		data2048=32'hc2002844;	Load data2116 to reg1
-//		data2052=32'h82804002;	addcc r1+r2->r1
-//		data2056=32'hc2202828;	set data2088 from reg1
-//		data2060=32'h10800010;	branch always to 2080
-
-//		data2076=32'h84804002;	adcc r1+r2->r2
-//		data2080=32'hc4202828;	set data2088 from reg2
-//		data2084=32'h10bfffe0;	branch always to 2056 (infinite loop)
-
-//		data2088=32'h00000000;	//Valores e la serie
-//		data2116=32'h00000001;	//Valor inicial de la serie
 end
 else if(wr)
 	case(address)

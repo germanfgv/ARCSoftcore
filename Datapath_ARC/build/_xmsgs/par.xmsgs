@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="Place" num="834" delta="new" >Only a subset of IOs are locked. Out of <arg fmt="%d" index="1">45</arg> IOs, <arg fmt="%d" index="2">44</arg> are locked and <arg fmt="%d" index="3">1</arg> are not locked. <arg fmt="%s" index="4">If you would like to print the names of these IOs, please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1.</arg> 
+</msg>
+
+<msg type="error" file="Place" num="866" delta="new" >Not enough valid sites to place the following IOBs:
+IO Standard: <arg fmt="%s" index="1">Name = LVCMOS25, VREF = NR, VCCO = 2.50, TERM = NONE, DIR = OUTPUT, DRIVE_STR = NR
+</arg><arg fmt="%s" index="2">	tx
+
+</arg>This may be due to either an insufficient number of sites available on the device, too many prohibited sites,
+or incompatible I/O Standards locked or range constrained to I/O Banks with valid sites.
+    This situation could possibly be resolved by one (or all) of the following actions:
+a) Grouping IOBs of similar standards into a minimum amount of I/O Banks by using LOC or range constraints.
+b) Maximizing available I/O Banks resources for special IOBs by choosing lower capacity I/O Banks if possible.
+c) If applicable, decreasing the number of user prohibited sites or using a larger device.
+</msg>
+
+<msg type="warning" file="ParHelpers" num="360" delta="new" >Design is not completely routed.
+
+</msg>
+
+<msg type="warning" file="Par" num="100" delta="new" >Design is not completely routed. There are <arg fmt="%d" index="1">7544</arg> signals that are not
+completely routed in this design. See the &quot;<arg fmt="%s" index="2">system-routed.unroutes</arg>&quot; file for a list of
+all unrouted signals. Check for other warnings in your PAR report that might
+indicate why these nets are unroutable. These nets can also be evaluated
+in FPGA Editor by selecting &quot;Unrouted Nets&quot; in the List Window.
+
+</msg>
+
+</messages>
+

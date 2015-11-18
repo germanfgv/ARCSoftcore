@@ -1,5 +1,5 @@
 module control_section(
-input clk,rst,ack,
+input clk,rst,
 input [31:0] ir,
 input [3:0] w_psr, // vecor de flags de la ALU
 output [40:0]mir

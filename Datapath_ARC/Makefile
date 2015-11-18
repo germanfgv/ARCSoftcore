@@ -35,6 +35,15 @@ SRC=						\
 	../rtl/control_section/mux_csa.v	\
 	../rtl/control_section/csai.v	\
 	../rtl/control_section/control_store.v	\
+	../rtl/perifericos.v \
+	../rtl/perifericos/uart_tx.v \
+	../rtl/perifericos/uart_rx.v \
+	../rtl/perifericos/uart.v \
+	../rtl/perifericos/debounce.v \
+	../rtl/perifericos/multiplexor8b.v \
+	../rtl/perifericos/multiplexor32b.v \
+	../rtl/perifericos/fifo.v \
+	../rtl/perifericos/counter.v \
 	../rtl/datapath.v	\
 	../rtl/datapath/alu.v	\
 	../rtl/datapath/psr.v	\

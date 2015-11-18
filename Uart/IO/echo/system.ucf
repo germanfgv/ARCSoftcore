@@ -1,6 +1,6 @@
 # ==== Clock inputs (CLK) ====
 NET "clk" LOC = "P38" | IOSTANDARD = LVCMOS33 ; # GCLK10;
-NET "clk" PERIOD = 20 HIGH 50%;
+NET "clk" PERIOD = 50 HIGH 50%;
 # ==== Bluetooth ports ====
 NET "rst" LOC = "P13" | IOSTANDARD = LVTTL;
 NET "tx" LOC = "P60" | IOSTANDARD = LVTTL;

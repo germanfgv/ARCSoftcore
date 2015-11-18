@@ -513,6 +513,6 @@ Módulo que desplaza bits de aquel registro presente en el bus A
 
 	);
 
-assign data=w_data_reg[32*2+7:32*(2)];
+assign data=w_data_reg[32*(R+1)+11:32*(R+1)+4];
 
 endmodule
