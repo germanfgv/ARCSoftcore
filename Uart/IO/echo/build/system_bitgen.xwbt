@@ -1,7 +1,0 @@
-INFILE=/home/german/Documents/ARCSoftcore/Uart/IO/echo/build/system-routed.ncd
-OUTFILE=/home/german/Documents/ARCSoftcore/Uart/IO/echo/build/system.bit
-FAMILY=Spartan3E
-PART=xc3s100e-4vq100
-WORKINGDIR=/home/german/Documents/ARCSoftcore/Uart/IO/echo/build
-LICENSE=WebPack
-USER_INFO=0_0_919
