@@ -48,7 +48,7 @@ module perifericos
     	.clk(clk), 
 		.reset(rst),
     	.rd_uart(debRd),
-		.wr_uart(debWr), 
+		.wr_uart(w_wr_db), 
 		.rx(rx),
     	.w_data(data_in),
     	.tx_full(stateTX), 
@@ -66,14 +66,14 @@ module perifericos
 
 
 	debounce debRD(
-		.clk(clk), .reset(rst), .sw(w_wr_db), .db_tick(debRd), .db_level()
+		.clk(clk), .reset(rst), .sw(w_rd_db), .db_tick(debRd), .db_level()
 	);
 
 	debounce debWR(
-		.clk(clk), .reset(rst), .sw(w_rd_db), .db_tick(debWr), .db_level()
+		.clk(clk), .reset(rst), .sw(w_wr_db), .db_tick(debWr), .db_level()
 	);
 
 	assign w_rd_db = ~(rd && s_mmio);
-	assign w_wr_db = ~(wr && s_mmio);
+	assign w_wr_db = (wr && s_mmio);
 
 endmodule

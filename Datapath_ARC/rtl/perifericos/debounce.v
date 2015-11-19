@@ -48,7 +48,7 @@ module debounce
                wait1 = 2'b11;
 
    // number of counter bits (2^N * 20ns = 40ms)
-   localparam N=21;
+   localparam N=1;
 
    // signal declaration
    reg [N-1:0] q_reg, q_next;
@@ -81,7 +81,7 @@ module debounce
                if (sw)
                   begin
                      state_next = wait1;
-                     q_next = {N{1'b1}}; // load 1..1
+                     q_next = 0; // load 1..1
                   end
             end
          wait1:
@@ -105,7 +105,7 @@ module debounce
                if (~sw)
                   begin
                      state_next = wait0;
-                     q_next = {N{1'b1}}; // load 1..1
+                     q_next = 0; // load 1..1
                   end
             end
          wait0:

@@ -22,17 +22,19 @@
 #*/
 
 module system
-#(parameter	clk_freq	= 50000000) 
+#(parameter	clk_freq	= 50000000,
+	parameter DIVS_BITS	= 2) 
 (
 	input		clk, rst,rx,
 	output  		tx,
-	output	[21:0]	mmd,
+	output	[7:0]	mmd,
 	output	[3:0]	psr,
 	output	[9:0]	address,
 	output	[7:0]	data
 
 );
 /*Declaración de cables*/
+wire 		w_clk;
 wire [31:0] w_ir;// Instructión register
 wire [40:0] w_mir;// Vicrocode instruction register
 wire [3:0]  w_psr;// Vector que contiene los Condition Codes (flags)
@@ -41,14 +43,19 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 	    w_bus_b,//Bus B del datapath en el que se envian datos a la MM
 	    w_data_iomm;
 wire [7:0] w_data_p;
+wire [DIVS_BITS-1:0] w_count;
+
+   counter #(.M(16), .N(4)) baud_gen_unit
+      (.clk(clk), .reset(w_rst), .q(w_count), .max_tick(tick));
 
 
+    assign w_clk = w_count[DIVS_BITS-1];
 /*Decaración demódulos*/
 
 	//Control section: Esté módulo controla la operación del datapath. Contiene toda la lógica que permite decidir 		los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory. 
 	control_section cs(
 		.rst(w_rst),
-		.clk(clk),
+		.clk(w_clk),
 		.ir(w_ir),
 		.w_psr(w_psr),
 		.mir(w_mir)
@@ -58,7 +65,7 @@ wire [7:0] w_data_p;
 	//Datapath: Manipula los datos y realiza operaciones dependiendo de las instrucciones de la control section
 	datapath dapa (
 		.rst(w_rst),
-		.clk(clk),
+		.clk(w_clk),
 		.mir(w_mir),
 		.data_MM(w_data_iomm),
 		.w_psr(w_psr),
@@ -78,7 +85,7 @@ wire [7:0] w_data_p;
 
 	//Main Memory: Contiene las instrucciónes a ejecutar
 	main_memory mm(
-		.clk(clk),
+		.clk(w_clk),
 		.rst(w_rst),
 		.rd(w_mir[19]),
 		.wr(w_mir[18]),
@@ -89,7 +96,7 @@ wire [7:0] w_data_p;
 
 
 	perifericos p1(
-		.clk(clk),
+		.clk(w_clk),
 		.rst(w_rst),
 		.rx(rx),
 		.tx(tx),
@@ -102,7 +109,7 @@ wire [7:0] w_data_p;
 		);
 
 assign address = w_bus_a[11:2];
-assign mmd=w_data_mm[21:0];
+assign mmd=w_data_mm[7:0];
 assign psr=w_psr;
 assign w_rst=~rst;
 
