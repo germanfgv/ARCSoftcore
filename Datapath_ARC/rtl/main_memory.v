@@ -7,7 +7,7 @@ input 	clk,rst,
 output reg [31:0] data_out
 );
 /* Declaración de registro de la main memory. Esta contener hasta 2³² registros. Para este ejemplo se utilizaran solo 32 registros*/
-reg [31:0] data0,data1,data2,data3,data4,data5,data6,data7,data8,data12,data16,data2048,
+reg [31:0] data0,data1,data2,data3,data4,data5,data6,data7,data8,data12,data16,data20,data2048,
 data2049,data2050,data2051,data2052,data2053,data2054,data2055,data2056,
 data2057,data2058,data2059,data2060,data2061,data2062,data2063,data2064,
 data2065,data2066,data2067,data2068,data2069,data2070,data2071,data2072,
@@ -40,19 +40,19 @@ initial
 
 
 //Add registros 1 y 2 y guarda en 3
-		data2048=32'b10000001110000000010100000000000;
-		data1=32'b01111111111111111111111111111111;
-		data2052=32'b11000100000000000010000000000101;
-		data5=32'b00000000000000000000000000000101;
-		data2056=32'b10000110100000000100000000000010;
-		data2060=32'hc620201F;
-		data2064=32'h81c3e810;
-
+		// data0=32'b11000010000000000010000000000001;
+		// data1=32'b00000000000000000000000001110000;
+		// data4=32'b11000100000000000010000000000101;
+		// data5=32'b00000000000000000000000000000011;
+		// data8=32'b10000110100000000100000000000010;
+		// data12=32'b11000110001000000011000000000000;
+		// data16=32'b11000110001000000011000000000000;
+		// data20=32'b11000110001000000011000000000000;
 
 
 
 //Sumar los números de un array
-/*		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
+		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
 		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
 		data2056=32'h8688c000; // ANDCC setting r3 to cero
 		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
@@ -65,12 +65,12 @@ initial
 		data2088=32'h81c3e848; // jump a 2120 (Inicia loop infinito)
 		data2092=32'h00000014;
 		data2096=32'h00000834;  
-		data2100=32'h0000000e; // 14
+		data2100=32'h0000004e; // 14
 		data2104=32'hffffffff; // -1
-		data2108=32'h00000004; // 4
-		data2112=32'h00000006; // 6
+		data2108=32'h00000024; // 4
+		data2112=32'h00000046; // 6
 		data2116=32'hfffffff1; // -15
-		data2120=32'h81c3e828; // jump a 2088*/
+		data2120=32'h81c3e828; // jump a 2088
 
 
 ////Fibonacci
@@ -92,14 +92,27 @@ always@(posedge clk)
 begin
 if(rst)
 begin
-//Add registros 1 y 2 y guarda en 3
-		data2048=32'b10000001110000000010100000000000;
-		data1=32'b01111111111111111111111111111111;
-		data2052=32'b11000100000000000010000000000101;
-		data5=32'b00000000000000000000000000000101;
-		data2056=32'b10000110100000000100000000000010;
-		data2060=32'hc620201F;
-		data2064=32'h81c3e810;
+		data0=32'b10000001110000000010100000000000;
+		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
+		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
+		data2056=32'h8688c000; // ANDCC setting r3 to cero
+		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
+		data2064=32'h02800018; // Branch si la flag Z está en 1 (no hay elementos restantes), lo cual redirige a la subrutina Done
+		data2068=32'h82807ffc; // Se resta 4 a r1 disminuyendo en 4 el número de bytes restantes
+		data2072=32'h88804002; // ADDCC r1 y r2 calculando la dirección de memoria del elemento a sumar y almacena en r4
+		data2076=32'hca010000; // load de la dirección r4 a r5
+		data2080=32'h8680c005; //ADDCC r3 y r5 sumando al acumulador un nuevo elemento
+		data2084=32'h10bfffe8; //Recomienza el loop volviendo a 2060
+		data2088=32'h81c3e848; // jump a 2120 (Inicia loop infinito)
+		data2092=32'h00000014;
+		data2096=32'h00000834;  
+		data2100=32'h0000004e; // 14
+		data2104=32'hffffffff; // -1
+		data2108=32'h00000024; // 4
+		data2112=32'h00000046; // 6
+		data2116=32'hfffffff1; // -15
+		data2120=32'h81c3e828; // jump a 2088
+
 
 
 end
@@ -114,6 +127,9 @@ else if(wr)
 	6:data6=data_in;
 	7:data7=data_in;
 	8:data8=data_in;
+	12:data12=data_in;
+	16:data16=data_in;
+	20:data20=data_in;
 	2048:data2048=data_in;
 	2049:data2049=data_in;
 	2050:data2050=data_in;
@@ -205,6 +221,9 @@ if(rd)
 	6:data_out=data6;
 	7:data_out=data7;
 	8:data_out=data8;
+	12:data_out=data12;
+	16:data_out=data16;
+	20:data_out=data20;
 	2048:data_out=data2048;
 	2049:data_out=data2049;
 	2050:data_out=data2050;

@@ -45,7 +45,7 @@ wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
 wire [7:0] w_data_p;
 wire [DIVS_BITS-1:0] w_count;
 
-   counter #(.M(16), .N(4)) baud_gen_unit
+   counter #(.M(DIVS_BITS**2-1), .N(DIVS_BITS)) baud_gen_unit
       (.clk(clk), .reset(w_rst), .q(w_count), .max_tick(tick));
 
 
