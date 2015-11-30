@@ -48,7 +48,7 @@ module perifericos
     	.clk(clk), 
 		.reset(rst),
     	.rd_uart(debRd),
-		.wr_uart(w_wr_db), 
+		.wr_uart(debWr), 
 		.rx(rx),
     	.w_data(data_in),
     	.tx_full(stateTX), 

@@ -39,9 +39,9 @@ module uart
       parameter DBIT = 8,     // # data bits
                 SB_TICK = 16, // # ticks for stop bits, 16/24/32
                               // for 1/1.5/2 stop bits
-                DVSR = 82,   // baud rate divisor
+                DVSR = 326,   // baud rate divisor
                               // DVSR = 50M/(16*baud rate)
-                DVSR_BIT = 7, // # bits of DVSR
+                DVSR_BIT = 9, // # bits of DVSR
                 FIFO_W = 3   // # addr bits of FIFO
                               // # words in FIFO=2^FIFO_W
    )

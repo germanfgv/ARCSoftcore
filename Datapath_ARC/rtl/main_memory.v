@@ -40,19 +40,19 @@ initial
 
 
 //Add registros 1 y 2 y guarda en 3
-		// data0=32'b11000010000000000010000000000001;
-		// data1=32'b00000000000000000000000001110000;
-		// data4=32'b11000100000000000010000000000101;
-		// data5=32'b00000000000000000000000000000011;
-		// data8=32'b10000110100000000100000000000010;
-		// data12=32'b11000110001000000011000000000000;
-		// data16=32'b11000110001000000011000000000000;
-		// data20=32'b11000110001000000011000000000000;
+		data0=32'b11000010000000000010000000000001;
+		data1=32'b00000000000000000000000001110000;
+		data4=32'b11000100000000000010000000000101;
+		data5=32'b00000000000000000000000000000011;
+		data8=32'b10000110100000000100000000000010;
+		data12=32'b11000110001000000011000000000000;
+		data16=32'b11000110001000000011000000000000;
+		data20=32'b11000110001000000011000000000000;
 
 
 
 //Sumar los números de un array
-		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
+/*		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
 		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
 		data2056=32'h8688c000; // ANDCC setting r3 to cero
 		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
@@ -70,7 +70,7 @@ initial
 		data2108=32'h00000024; // 4
 		data2112=32'h00000046; // 6
 		data2116=32'hfffffff1; // -15
-		data2120=32'h81c3e828; // jump a 2088
+		data2120=32'h81c3e828; // jump a 2088*/
 
 
 ////Fibonacci
@@ -92,29 +92,14 @@ always@(posedge clk)
 begin
 if(rst)
 begin
-		data0=32'b10000001110000000010100000000000;
-		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
-		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
-		data2056=32'h8688c000; // ANDCC setting r3 to cero
-		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
-		data2064=32'h02800018; // Branch si la flag Z está en 1 (no hay elementos restantes), lo cual redirige a la subrutina Done
-		data2068=32'h82807ffc; // Se resta 4 a r1 disminuyendo en 4 el número de bytes restantes
-		data2072=32'h88804002; // ADDCC r1 y r2 calculando la dirección de memoria del elemento a sumar y almacena en r4
-		data2076=32'hca010000; // load de la dirección r4 a r5
-		data2080=32'h8680c005; //ADDCC r3 y r5 sumando al acumulador un nuevo elemento
-		data2084=32'h10bfffe8; //Recomienza el loop volviendo a 2060
-		data2088=32'h81c3e848; // jump a 2120 (Inicia loop infinito)
-		data2092=32'h00000014;
-		data2096=32'h00000834;  
-		data2100=32'h0000004e; // 14
-		data2104=32'hffffffff; // -1
-		data2108=32'h00000024; // 4
-		data2112=32'h00000046; // 6
-		data2116=32'hfffffff1; // -15
-		data2120=32'h81c3e828; // jump a 2088
-
-
-
+		data0=32'b11000010000000000010000000000001;
+		data1=32'b00000000000000000000000001110000;
+		data4=32'b11000100000000000010000000000101;
+		data5=32'b00000000000000000000000000000011;
+		data8=32'b10000110100000000100000000000010;
+		data12=32'b11000110001000000011000000000000;
+		data16=32'b11000110001000000011000000000000;
+		data20=32'b11000110001000000011000000000000;
 end
 else if(wr)
 	case(address)

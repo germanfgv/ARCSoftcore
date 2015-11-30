@@ -96,7 +96,7 @@ wire [DIVS_BITS-1:0] w_count;
 
 
 	perifericos p1(
-		.clk(w_clk),
+		.clk(clk),
 		.rst(w_rst),
 		.rx(rx),
 		.tx(tx),
