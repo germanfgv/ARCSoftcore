@@ -81,6 +81,47 @@ initial begin
 	#40 w_ack <=0;
 	#200 w_ack <=1;
 	#40 w_ack <=0;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+	#15001  rst_tb <= 0;
+	#145 rst_tb <= 1;
+
 	
 	#(tck*5000) $finish;
 end

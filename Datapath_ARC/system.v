@@ -1,4 +1,3 @@
-
 // SharkBoad SystemModule
 //
 // Top Level Design for the Xilinx Spartan 3-100E Device
@@ -23,36 +22,33 @@
 
 module system
 #(parameter	clk_freq	= 50000000,
-	parameter DIVS_BITS	= 2) 
-(
-	input		clk, rst,rx,
+	parameter DIVS_BITS	= 2) (
+	input		clk, rst,rx,rst_clk,
 	output  		tx,
 	output	[7:0]	mmd,
-	output	[3:0]	psr,
 	output	[9:0]	address,
 	output	[7:0]	data
-
 );
+
 /*Declaración de cables*/
 wire 		w_clk;
 wire [31:0] w_ir;// Instructión register
 wire [40:0] w_mir;// Vicrocode instruction register
 wire [3:0]  w_psr;// Vector que contiene los Condition Codes (flags)
 wire [31:0] w_data_mm,// bus que lleva datos de la Main memory al datpath
-	    w_bus_a,//Bus A del datapath que sirve como address de la MM
-	    w_bus_b,//Bus B del datapath en el que se envian datos a la MM
-	    w_data_iomm;
+	    	w_bus_a,//Bus A del datapath que sirve como address de la MM
+	    	w_bus_b,//Bus B del datapath en el que se envian datos a la MM
+	    	w_data_iomm;
 wire [7:0] w_data_p;
 wire [DIVS_BITS-1:0] w_count;
 
-   counter #(.M(DIVS_BITS**2-1), .N(DIVS_BITS)) baud_gen_unit
-      (.clk(clk), .reset(w_rst), .q(w_count), .max_tick(tick));
+   counter #(.M(DIVS_BITS**2), .N(DIVS_BITS)) baud_gen_unit
+      (.clk(clk), .reset(rst_clk), .q(w_count), .max_tick(tick));
 
 
-    assign w_clk = w_count[DIVS_BITS-1];
 /*Decaración demódulos*/
 
-	//Control section: Esté módulo controla la operación del datapath. Contiene toda la lógica que permite decidir 		los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory. 
+	//Control section: Esté módulo controla la operación del datapath. Contiene toda la lógica que permite decidir 	los pasos a seguir para llevar a cabo la intrucciónes de la Main Memory. 
 	control_section cs(
 		.rst(w_rst),
 		.clk(w_clk),
@@ -87,8 +83,8 @@ wire [DIVS_BITS-1:0] w_count;
 	main_memory mm(
 		.clk(w_clk),
 		.rst(w_rst),
-		.rd(w_mir[19]),
-		.wr(w_mir[18]),
+		.rd(w_mir[19]&(~w_bus_a[12])),
+		.wr(w_mir[18]&(~w_bus_a[12])),
 		.address(w_bus_a),
 		.data_in(w_bus_b),
 		.data_out(w_data_mm)
@@ -111,6 +107,10 @@ wire [DIVS_BITS-1:0] w_count;
 assign address = w_bus_a[11:2];
 assign mmd=w_data_mm[7:0];
 assign psr=w_psr;
-assign w_rst=~rst;
+assign w_clk = w_count[DIVS_BITS-1];
+assign w_rst = ~rst;
+/*debounce  debWR (
+	.clk(w_clk), .reset(1'b0), .sw(~rst), .db_tick(w_rst), .db_level()
+);*/
 
 endmodule
