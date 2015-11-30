@@ -1,0 +1,4 @@
+flex example4.l
+bison -dv example4.y
+gcc -c lex.yy.c example4.tab.c
+gcc -o compilado lex.yy.o example4.tab.o -lfl
