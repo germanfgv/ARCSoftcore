@@ -75,6 +75,7 @@ int main(){
 	#if YYDEBUG
 		yydebug=1;
 	#endif
+		
 	yyparse();
 	return 0;
 }
