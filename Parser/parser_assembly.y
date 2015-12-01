@@ -53,5 +53,4 @@ ini_prog: BEGIN
 fin_pro: END;
 %%
 
-
-
+#include "lex.yy.c"
