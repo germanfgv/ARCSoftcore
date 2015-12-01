@@ -1,6 +1,5 @@
 .begin
 .org 2048
-asdx
 	x:15
 	y:3
 	z:0	
@@ -12,5 +11,5 @@ prog: ld [x] , %r1 !Cargar x en el registro r1
 
 
 	.end
-
+uhb
 

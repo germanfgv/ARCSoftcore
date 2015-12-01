@@ -7,7 +7,7 @@ void yyerror(const char* string);
 
 int lineno=1;
 void yyerror(const char* string){
-	 printf("At line %d: %s --> %s\n", lineno, string, yytext) ;
+	printf("At line %d: %s --> %s\n", lineno, string, yytext) ;
 }
 
 
@@ -22,13 +22,44 @@ void yyerror(const char* string){
 
 [ \r\t]+		{}
 
-"."begin	{ BEGIN P ; return START;}
-<P>"."end		{ BEGIN 0; return END;}
+"."begin	{ BEGIN P ;}
+<P>"."end		{ BEGIN 0;}
 <P>"."org		{ return ORG;}
+<P>"."equ		{ return EQU;}
+
+<P>halt			{ return HALT;}
+<P>nop			{ return NOP;}
+
+
 <P>ld			{ return LD;}
+<P>st 			{ return ST;}
+
+
 <P>add			{ return ADD;}
 <P>addcc		{ return ADDCC;}
-<P>st 			{ return ST;}
+<P>srl			{ return SRL;}
+<P>sll			{ return SLL;}
+<P>sra			{ return SRA;}
+
+<P>and			{ return AND;}
+<P>andcc		{ return ANDCC;}
+<P>or 			{ return OR;}
+<P>orcc		{ return ORCC;}
+
+
+
+<P>be			{ return BE;}
+<P>bne			{ return BNE;}
+<P>bcs			{ return BCS;}
+<P>bcc			{ return BCC;}
+<P>bneg		{ return BNEG;}
+<P>bpos		{ return BPOS;}
+<P>bvs			{ return BVS;}
+<P>bvc			{ return BVC;}
+<P>ba			{ return BA;}
+<P>jmpl		{ return JMPL;}
+<P>call			{ return CALL;}
+
 
 
 <P>"%"r1    { return REG_R1;}
@@ -49,19 +80,20 @@ void yyerror(const char* string){
 
 
 <P>[_a-zA-Z][_a-zA-Z0-9]*		{return NAME;}	
-<P>[0-9]+						{ return P_INT;}
-<P>-[0-9]+						{ return N_INT;}
+<P>[0-9]+				{ return P_INT;}
+<P>-[0-9]+				{ return N_INT;}
 
 
-<P>","      { return COMMA; }
-<P>":"      {  return COLON;}
-<P>";"      {  return SEMICOLON;}
-<P>"["		 {  return LEFT_SQ_BR;}
-<P>"]"		 {  return RIGHT_SQ_BR;}
+<P>","      	{ return COMMA; }
+<P>":"     	{  return COLON;}
+<P>";"      	{  return SEMICOLON;}
+<P>"["		{  return LEFT_SQ_BR;}
+<P>"]"		{  return RIGHT_SQ_BR;}
+<P>"+"		{ return PLUS;}
 <P>.        { yyerror("Unknown character or expression.");}
 
 \n 		 {lineno++;return '\n';}
-. 		 { yyerror("Syntax Error , no code is allowed outside .begin and .end."); return 1;}
+. 		 { yyerror("Syntax Error , no code is allowed outside .begin and .end."); 	return 1;}
 
 
 %%
