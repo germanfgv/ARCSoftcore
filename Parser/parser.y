@@ -13,13 +13,16 @@ void yyerror(const char* string);
 %}
 
 
-%token START END ORG 
-%token LD ADD ADDCC ST 
+%token ORG EQU HALT NOP
+%token LD ST 
+%token ADD ADDCC SRL SLL SRA
+%token AND ANDCC OR ORCC
+%token BE BNE BCS BCC BNEG BPOS BVS BVC BA JMPL CALL 
 %token REG_R1 REG_R2 REG_R3 REG_R4 REG_R5 
 %token REG_R6 REG_R7 REG_R8 REG_R9 REG_R10 
 %token REG_R11 REG_R12 REG_R13 REG_R14 REG_R15
-%token COMMA COLON SEMICOLON LEFT_SQ_BR RIGHT_SQ_BR 
 %token NAME P_INT N_INT
+%token COMMA COLON SEMICOLON LEFT_SQ_BR RIGHT_SQ_BR PLUS
 %start program
 
 
@@ -29,7 +32,7 @@ program: instruction | label | '\n' | program instruction | program label | prog
 
 label: labelst | varst ;
 
-instruction:  instr_2 | instr_3 | init_addr |  START | END ; /*Posicionamiento de ini_prog y fin_prog en esta regla sujeto a evaluación*/
+instruction:  instr_2 | instr_3 | instr_1 | init_addr | instr_equ | marker | instr_jmpl; /*Posicionamiento de ini_prog y fin_prog en esta regla sujeto a evaluación*/
 
 mem_operand: memloc | P_INT ;
  
@@ -41,9 +44,19 @@ instr_2: ld_instr | st_instr;
 
 operand: reg |  P_INT | N_INT;
 
-command3: ADDCC | ADD;
+command3: ADDCC | ADD | SRL | SLL | SRA | AND | ANDCC | OR | ORCC;
 
 instr_3: command3 operand COMMA operand COMMA operand '\n' ;
+
+instr_1: command1 NAME 
+
+instr_equ: NAME EQU P_INT ;
+
+marker: HALT|NOP;
+
+instr_jmpl: JMPL reg PLUS P_INT COMMA reg | JMPL reg  N_INT COMMA reg;
+
+command1: BE | BNE | BCS | BCC | BNEG | BPOS | BVS | BVC | BA | CALL;
 
 reg : REG_R1| REG_R2 |REG_R3 | REG_R4 | REG_R5 | REG_R6 | REG_R7 |REG_R8 | REG_R9 | REG_R10 | REG_R11 | REG_R12 | REG_R13 | REG_R14 |REG_R15;
 
