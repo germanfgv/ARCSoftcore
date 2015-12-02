@@ -19,3 +19,5 @@ typedef struct{
 int8_t addEntry(dict *dic, entry *ne);
 
 int8_t getEntryIdx(dict *dic, int32_t idx, entry **ent);
+
+int8_t getEntryKey(dict *dic, char *key, entry **ent);

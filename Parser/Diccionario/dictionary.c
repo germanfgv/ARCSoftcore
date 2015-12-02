@@ -39,3 +39,29 @@ int8_t getEntryIdx(dict *dic, int32_t idx, entry **ent){
 	return 0;
 }
 
+int8_t getEntryKey(dict *dic, char *key, entry **ent){
+	int i=0;
+	int nfound=-1;						//nfound=0 -> no se ha encontrado entrada buscada
+										//nfound=1 -> no se ha encontrado entrada buscada
+	int n_entries=(*dic).n_entries;
+
+	if(n_entries==0){
+		printf("No hay entradas en el diccionario. (En funcion getEntryKey\n");
+		return -1;
+	}
+
+	entry *act= (*dic).first;
+
+	for(i=0;i<n_entries;i++){
+
+		if(strcmp((*act).key,key)==0){
+			nfound=0;
+			break;
+		}
+		act=(*act).next;
+	}
+
+	*ent=act;
+	return nfound;
+}
+
