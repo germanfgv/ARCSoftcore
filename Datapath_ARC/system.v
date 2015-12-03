@@ -43,7 +43,7 @@ wire [7:0] w_data_p;
 wire [DIVS_BITS-1:0] w_count;
 
    counter #(.M(DIVS_BITS**2), .N(DIVS_BITS)) baud_gen_unit
-      (.clk(clk), .reset(rst_clk), .q(w_count), .max_tick(tick));
+      (.clk(clk), .reset(w_rst), .q(w_count), .max_tick(tick));
 
 
 /*Decaración demódulos*/

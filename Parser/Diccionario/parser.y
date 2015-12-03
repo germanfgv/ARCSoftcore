@@ -5,8 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Diccionario/dictionary.h"
-
+#include "dictionary.h"
 
 FILE *yyin;
 int yywrap();
@@ -32,8 +31,6 @@ void yyerror(const char* string);
 %token COMMA COLON SEMICOLON LEFT_SQ_BR RIGHT_SQ_BR PLUS
 %start program
 %type <str> memloc
-
-
 %%
 
 program: instruction | label | '\n' | program instruction | program label | program '\n' ;
@@ -78,14 +75,21 @@ labelst: NAME COLON instr_2 | NAME COLON instr_3; /* e.g.: start:inst
 
 varst: 	NAME COLON P_INT '\n' { printf("num is: %d\n", atoi($3));
 								entry *ne=malloc(sizeof(entry));
-								(*ne).key= $1;
+								(*ne).key= ($1);
 								(*ne).value=atoi($3);
-								addEntry(&symbols,ne);
-
+								if(addEntry(&symbols,ne)<0){
+									printf("Error al agregar entrada al diccionario: %s\n", $1);
+								}
 							}
-		| NAME COLON N_INT '\n' { printf("num is: %d\n", atoi($3));}
+		| NAME COLON N_INT '\n' { printf("num is: %d\n", atoi($3));
+								entry *ne=malloc(sizeof(entry));
+								(*ne).key= ($1);
+								(*ne).value=atoi($3);
+								if(addEntry(&symbols,ne)<0){
+									printf("Error al agregar entrada al diccionario: %s\n", $1);
+								}
+							}
 		;  /* e.g: x:5 .Guardar Label value.OJO. */
-
 %%
 
 
@@ -118,7 +122,7 @@ int main(int argc, char const * argv[])
 
 	printf("Buscando simbolo\n");
 	strcpy(key,"x");
-	if(getEntryIdx(&symbols,0,&ent)<0){
+	if(getEntryKey(&symbols,key,&ent)<0){
 		printf("Error\n");
 		printf( "No hay entreda con la key \"%s\"\n",  key);
 	}else{
@@ -128,4 +132,58 @@ int main(int argc, char const * argv[])
 		printf("key is: %s\n", (*ent).key );	
 
 	}
+
+	printf("Buscando simbolo\n");
+	strcpy(key,"y");
+	if(getEntryKey(&symbols,key,&ent)<0){
+		printf("Error\n");
+		printf( "No hay entreda con la key \"%s\"\n",  key);
+	}else{
+		printf("Printing\n");
+		printf("value is: %d\n",(*ent).value );
+		printf("idx is: %d\n",(*ent).idx );	
+		printf("key is: %s\n", (*ent).key );	
+
+	}
+
+	printf("Buscando simbolo\n");
+	strcpy(key,"book");
+	if(getEntryKey(&symbols,key,&ent)<0){
+		printf("Error\n");
+		printf( "No hay entreda con la key \"%s\"\n",  key);
+	}else{
+		printf("Printing\n");
+		printf("value is: %d\n",(*ent).value );
+		printf("idx is: %d\n",(*ent).idx );	
+		printf("key is: %s\n", (*ent).key );	
+
+	}
+
+	printf("Buscando simbolo\n");
+	strcpy(key,"var");
+	if(getEntryKey(&symbols,key,&ent)<0){
+		printf("Error\n");
+		printf( "No hay entreda con la key \"%s\"\n",  key);
+	}else{
+		printf("Printing\n");
+		printf("value is: %d\n",(*ent).value );
+		printf("idx is: %d\n",(*ent).idx );	
+		printf("key is: %s\n", (*ent).key );	
+
+	}
+
+	printf("Buscando simbolo\n");
+	strcpy(key,"pez");
+	if(getEntryKey(&symbols,key,&ent)<0){
+		printf("Error\n");
+		printf( "No hay entreda con la key \"%s\"\n",  key);
+	}else{
+		printf("Printing\n");
+		printf("value is: %d\n",(*ent).value );
+		printf("idx is: %d\n",(*ent).idx );	
+		printf("key is: %s\n", (*ent).key );	
+
+	}
+
+	
 }

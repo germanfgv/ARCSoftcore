@@ -24,21 +24,6 @@ initial
 
 //Las posiciones 0 a 2047 están reservadas para procesos del sistema. Por tanto, se utiliza la posición 0 solo para comenzar a correr la secuencia desde la posición 2048, donde comienza la asignación de memoria principal reservada al usuario.
 		data0=32'b10000001110000000010100000000000;		
-
-
-//Add registros 1 y 2 y guarda en 3
-/*		data2048=32'b11000010000000000010100000011000;
-		data2052=32'b11000100000000000010100000010100;
-		data2056=32'b10000110100000000100000000000010;
-		data2060=32'b11000110001000000011000000000000;
-		data2064=32'h81c3e810;
-		data2068=32'b00000000000000000000000001110000;
-		data2072=32'b00000000000000000000000000000011;*/
-
-
-
-//Sumar los números de un array
-/*		data0   =32'b10000001110000000010100000000000;
 		data2048=32'hc2002830; // load from 2096 to r1 (largo arreglo)
 		data2052=32'hc4002834; // load from 2100 to r2 (dirección arreglo)
 		data2056=32'h8688c000; // ANDCC setting r3 to cero
@@ -57,19 +42,7 @@ initial
 		data2108=32'hffffffff; // -1
 		data2112=32'h00000024; // 36
 		data2116=32'h00000046; // 70
-		data2120=32'hfffffff1; // -15*/
-
-
-////Fibonacci
-		data2048=32'hc2002844;	//Load data2116 to reg1
-		data2052=32'h82804002;	//addcc r1+r2->r1
-		data2056=32'b11000110001000000011000000000000;	//set data2088 from reg1
-		data2060=32'h10800010;	//branch always to 2080
-		data2076=32'h84804002;	//adcc r1+r2->r2
-		data2080=32'b11000110001000000011000000000000;	//set data2088 from reg2
-		data2084=32'h10bfffe0;	//branch always to 2056 (infinite loop)
-		data2088=32'h00000000;	//Valores e la serie
-		data2116=32'h00000001;	//Valor inicial de la serie
+		data2120=32'hfffffff1; // -15
 	end
 
 /*Write instrución*/
@@ -77,15 +50,26 @@ always@(posedge clk)
 begin
 if(rst)
 begin
-		data2048=32'hc2002844;	//Load data2116 to reg1
-		data2052=32'h82804002;	//addcc r1+r2->r1
-		data2056=32'b11000110001000000011000000000000;	//set data2088 from reg1
-		data2060=32'h10800010;	//branch always to 2080
-		data2076=32'h84804002;	//adcc r1+r2->r2
-		data2080=32'b11000110001000000011000000000000;	//set data2088 from reg2
-		data2084=32'h10bfffe0;	//branch always to 2056 (infinite loop)
-		data2088=32'h00000000;	//Valores e la serie
-		data2116=32'h00000001;	//Valor inicial de la serie
+		data0   =32'b10000001110000000010100000000000;
+		data2048=32'hc200282c; // load from 2092 to r1 (largo arreglo)
+		data2052=32'hc4002830; // load from 2096 to r2 (dirección arreglo)
+		data2056=32'h8688c000; // ANDCC setting r3 to cero
+		data2060=32'h80884001; // ANDCC de r1. Comprueba si r1 es cero
+		data2064=32'h02800018; // Branch si la flag Z 8stá en 1 (no hay elementos restantes), lo cual redirige a la subrutina Done
+		data2068=32'h82807ffc; // Se resta 4 a r1 disminuyendo en 4 el número de bytes restantes
+		data2072=32'h88804002; // ADDCC r1 y r2 calculando la dirección de memoria del elemento a sumar y almacena en r4
+		data2076=32'hca010000; // load de la dirección r4 a r5
+		data2080=32'h8680c005; // ADDCC r3 y r5 sumando al acumulador un nuevo elemento
+		data2084=32'h10bfffe8; // Recomienza el loop volviendo a 2060
+		data2088=32'b11000110001000000011000000000000; // Enviando resultado por UART
+		data2092=32'h10bfe000;
+		data2096=32'h00000014; // Numero de bytes de los que consta el array
+		data2100=32'h00000838; // Puntero al array
+		data2104=32'h0000000e; // 14
+		data2108=32'hffffffff; // -1
+		data2112=32'h00000024; // 36
+		data2116=32'h00000046; // 70
+		data2120=32'hfffffff1; // -15
 
 end
 else if(wr)

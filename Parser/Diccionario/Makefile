@@ -4,9 +4,6 @@ LEX = flex
 YACC = bison -d
 CC = gcc
 
-test: dictionary.c dictionary.h test.c
-	$(CC) -o $@.o test.c dictionary.c
-
 $(FNAME).o: $(FNAME).tab.o lex.yy.o
 	$(CC) -o $@ $(FNAME).tab.o lex.yy.o dictionary.c -lfl
 

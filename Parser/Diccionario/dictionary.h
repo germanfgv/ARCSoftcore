@@ -10,11 +10,12 @@ typedef struct{
 	void	*next;
 } entry;
 
-typedef struct{
+typedef struct dict{
 	entry		*first;
 	uint32_t	n_entries;
 } dict;
 
+struct dict symbols;
 
 int8_t addEntry(dict *dic, entry *ne);
 
