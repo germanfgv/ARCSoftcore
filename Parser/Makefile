@@ -4,8 +4,9 @@ LEX = flex
 YACC = bison -d
 CC = gcc
 
+
 $(FNAME).o: $(FNAME).tab.o lex.yy.o
-	$(CC) -o $@ $(FNAME).tab.o lex.yy.o dictionary.c -lfl
+	$(CC) -o $@ $(FNAME).tab.o lex.yy.o Diccionario/dictionary.c -lfl
 
 
 $(FNAME).tab.o: lex.yy.c $(FNAME).tab.c
