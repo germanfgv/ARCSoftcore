@@ -10,7 +10,14 @@ int be(Node **node){
 	ir |= SET_BRA_FMT << OP;
 	ir |= BE << COND;
 	ir |= BRANCH << OP2;
-	ir |= atoi(str);
+	entry *ent;
+	int val = getEntryKey(&symbols,str,&ent);
+	if(val<0){
+		printf("Error obteniendo ir para la funcion SETHI");
+		return -1;
+	}else{
+		ir |= (*ent).value;
+	}
 	return 0;
 }
 
@@ -22,7 +29,13 @@ int bcs(Node **node){
 	ir |= SET_BRA_FMT << OP;
 	ir |= BCS << COND;
 	ir |= BRANCH << OP2;
-	ir |= atoi(str);
+	int val = getEntryKey(&symbols,str,&ent);
+	if(val<0){
+		printf("Error obteniendo ir para la funcion SETHI");
+		return -1;
+	}else{
+		ir |= (*ent).value;
+	}
 	return 0;
 }
 
@@ -34,7 +47,13 @@ int bneg(Node **node){
 	ir |= SET_BRA_FMT << OP;
 	ir |= BNEG << COND;
 	ir |= BRANCH << OP2;
-	ir |= atoi(str);
+	int val = getEntryKey(&symbols,str,&ent);
+	if(val<0){
+		printf("Error obteniendo ir para la funcion SETHI");
+		return -1;
+	}else{
+		ir |= (*ent).value;
+	}
 	return 0;
 }
 
@@ -46,7 +65,13 @@ int bvs(Node **node){
 	ir |= SET_BRA_FMT << OP;
 	ir |= BVS << COND;
 	ir |= BRANCH << OP2;
-	ir |= atoi(str);
+	int val = getEntryKey(&symbols,str,&ent);
+	if(val<0){
+		printf("Error obteniendo ir para la funcion SETHI");
+		return -1;
+	}else{
+		ir |= (*ent).value;
+	}
 	return 0;
 }
 
@@ -58,7 +83,13 @@ int ba(Node **node){
 	ir |= SET_BRA_FMT << OP;
 	ir |= BA << COND;
 	ir |= BRANCH << OP2;
-	ir |= atoi(str);
+	int val = getEntryKey(&symbols,str,&ent);
+	if(val<0){
+		printf("Error obteniendo ir para la funcion SETHI");
+		return -1;
+	}else{
+		ir |= (*ent).value;
+	}
 	return 0;
 }
 //Funcion set
@@ -76,10 +107,10 @@ int sethi(Node **node){
 		}else{
 			entry *ent;
 			int val = getEntryKey(&symbols,str,&ent);
-			if(val<0)
+			if(val<0){
 				printf("Error obteniendo ir para la funcion SETHI");
 				return -1;
-			else{
+			}else{
 				ir |= (*ent).value;
 			}
 		}
