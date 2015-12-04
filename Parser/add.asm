@@ -9,7 +9,5 @@ prog: ld [x] , %r1 !Cargar x en el registro r1
       addcc %r1,%r2 ,%r3 !%r3 ← %r1 + %r2
       st %r3, [z] !Guardar el Resultado en z
 
-
 	.end
-uhb
 
