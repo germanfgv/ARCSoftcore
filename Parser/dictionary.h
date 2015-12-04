@@ -1,10 +1,10 @@
-
 #ifndef DICTIONARY
 #define DICTIONARY
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 
 typedef struct{
 	char	*key;

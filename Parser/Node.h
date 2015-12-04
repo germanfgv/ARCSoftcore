@@ -1,3 +1,6 @@
+#ifndef NODELIB 
+#define NODELIB
+
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
@@ -36,5 +39,6 @@ void prependNode(Node* nodet , Node* nodep );
 
 Node* newNode(void);
 
-Node* newNodeString(char* string);
+Node* newNodeString(char* string);	
 
+#endif

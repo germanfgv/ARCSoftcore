@@ -44,6 +44,7 @@ void yyerror(const char* string){
 <P>and			{ yylval.str=strdup(yytext); return AND;}
 <P>andcc		{ yylval.str=strdup(yytext); return ANDCC;}
 <P>or 			{ yylval.str=strdup(yytext); return OR;}
+<P>onrcc		{ yylval.str=strdup(yytext); return ORNCC;}
 <P>orcc			{ yylval.str=strdup(yytext); return ORCC;}
 
 
@@ -59,6 +60,7 @@ void yyerror(const char* string){
 <P>ba			{ yylval.str=strdup(yytext); return BA;}
 <P>jmpl			{ yylval.str=strdup(yytext); return JMPL;}
 <P>call			{ yylval.str=strdup(yytext); return CALL;}
+<P>sethi		{ yylval.str=strdup(yytext); return SETHI;}
 
 
 <P>"%"r0    { yylval.str=strdup(yytext); return REG_R0;}
