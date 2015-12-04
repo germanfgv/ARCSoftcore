@@ -28,10 +28,10 @@ initial
 ////Fibonacci
 		data2048=32'hc2002844;	//Load data2116 to reg1
 		data2052=32'h82804002;	//addcc r1+r2->r1
-		data2056=32'b11000110001000000011000000000000;	//set data2088 from reg1
+		data2056=32'b11000010001000000011000000000000;	//set data2088 from reg1
 		data2060=32'h10800010;	//branch always to 2080
 		data2076=32'h84804002;	//adcc r1+r2->r2
-		data2080=32'b11000110001000000011000000000000;	//set data2088 from reg2
+		data2080=32'b11000100001000000011000000000000;	//set data2088 from reg2
 		data2084=32'h10bfffe0;	//branch always to 2056 (infinite loop)
 		data2088=32'h00000000;	//Valores e la serie
 		data2116=32'h00000001;	//Valor inicial de la serie
@@ -44,10 +44,10 @@ if(rst)
 begin
 		data2048=32'hc2002844;	//Load data2116 to reg1
 		data2052=32'h82804002;	//addcc r1+r2->r1
-		data2056=32'b11000110001000000011000000000000;	//set data2088 from reg1
+		data2056=32'b11000010001000000011000000000000;	//set data2088 from reg1
 		data2060=32'h10800010;	//branch always to 2080
 		data2076=32'h84804002;	//adcc r1+r2->r2
-		data2080=32'b11000110001000000011000000000000;	//set data2088 from reg2
+		data2080=32'b11000100001000000011000000000000;	//set data2088 from reg2
 		data2084=32'h10bfffe0;	//branch always to 2056 (infinite loop)
 		data2088=32'h00000000;	//Valores e la serie
 		data2116=32'h00000001;	//Valor inicial de la serie
