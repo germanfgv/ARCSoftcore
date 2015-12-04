@@ -17,7 +17,8 @@ loop:		andcc %r1,%r1,%r0  !Prueba de elementos restantes.(Pasar el valor almacen
 		ld    %r4,%r5	   !Cargar el elemento a sumar en %r5
 		addcc %r3,%r5,%r3  !Sumar el elemento seleccionado con el acumulado de la suma.
 		ba loop            !Recomenzar el loop
-done: 		jmpl %r15+4,%r0	   !Salto a siguiente rutina almacenada en memoria principal.
+done: 		st %r3,[4096] 	   !Salto a siguiente rutina almacenada en memoria principal.
+inf:		ba inf 		
 length: 	20	           !Largo del arreglo de números a sumar.
 address:	a_start		   !Dirección de inicio del arreglo. Se posiciona s
 		.org a_start
@@ -27,3 +28,5 @@ a:27
 -18
 6
 .end 
+
+
