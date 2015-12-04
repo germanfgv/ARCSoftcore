@@ -281,8 +281,8 @@ int bvs(Node **node){
 	}
 	*node = (**node).next;
 	
-	printf("		data%d=%X\n",inst_loc ,ir);
-	fprintf(fp,"		data%d=32'h%X\n",inst_loc ,ir);
+	printf("		data%d=%X;\n",inst_loc ,ir);
+	fprintf(fp,"		data%d=32'h%X;\n",inst_loc ,ir);
 
 	return 0;
 }
@@ -305,8 +305,8 @@ int ba(Node **node){
 	}
 	*node = (**node).next;
 	
-	printf("		data%d=%X\n", inst_loc ,ir);
-	fprintf(fp,"		data%d=32'h%X\n", inst_loc ,ir);
+	printf("		data%d=%X;\n", inst_loc ,ir);
+	fprintf(fp,"		data%d=32'h%X;\n", inst_loc ,ir);
 
 	return 0;
 }
@@ -337,8 +337,8 @@ int sethi(Node **node){
 	}
 	*node = (**node).next;
 	
-	printf("		data%d=%X\n", ir);
-	fprintf(fp,"		data%d=32'h%X\n", ir);
+	printf("		data%d=%X;\n", ir);
+	fprintf(fp,"		data%d=32'h%X;\n;", ir);
 
 	return 0;
 }
@@ -350,8 +350,8 @@ int var(Node **node){
 	*node = (**node).next;
 	char *str = (**node).val.sval;
 	ir |= atoi(str);
-	printf("		data%d=%X\n",inst_loc,ir);
-	fprintf(fp,"		data%d=32'h%X\n",inst_loc,ir);
+	printf("		data%d=%X;\n",inst_loc,ir);
+	fprintf(fp,"		data%d=32'h%X;\n",inst_loc,ir);
 	*node = (**node).next;
 	return 0;
 }

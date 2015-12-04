@@ -135,6 +135,7 @@ labelst: NAME COLON instruction  {
 								}; 
 
 varst: 	NAME COLON P_INT '\n' { 
+								inst_loc+=4;
 								addStringList(pcNode, "var");
 								addStringList(pcNode, $3);
 								addStringList(pcNode, "\n");
@@ -144,10 +145,10 @@ varst: 	NAME COLON P_INT '\n' {
 								if(addEntry(&symbols,ne)<0){
 									printf("Error al agregar entrada al diccionario: %s\n", $1);
 								}
-								inst_loc+=4;
+
 							}
 		| NAME COLON N_INT '\n' {
-
+								inst_loc+=4;
 								addStringList(pcNode, "var");
 								addStringList(pcNode, $3);
 								addStringList(pcNode, "\n");
@@ -157,7 +158,7 @@ varst: 	NAME COLON P_INT '\n' {
 								if(addEntry(&symbols,ne)<0){
 									printf("Error al agregar entrada al diccionario: %s\n", $1);
 								}
-								inst_loc+=4;
+
 							};
 
 label: labelst | varst ;
@@ -212,44 +213,35 @@ int main(int argc, char const * argv[])
 	while(cNode!=NULL){
 		str=(*cNode).val.sval;
 		printf("Inst: %s\n", str );
+		printf("InstLoc: %d.\n",inst_loc);
 
 			if((op=strtoinst(str))!=-1){
-			printf("Entro a arit con instr: %s\n", str);
 			if(aricc(pcNode , op)){
 				printf("Error en generación de instrucción aritmética %s : %d \n", str , op);
+				return -1;
 			};
 		}else if(strcmp(str,"ld")==0){
-			printf("Entro a ld con instr: %s\n", str);
 			ld(pcNode);
 		}else if (strcmp(str,"st")==0){
-			printf("Entro a st con instr: %s\n", str);
 			st(pcNode);
 		}else if(strcmp(str,"be")==0){
-			printf("Entro a be con instr: %s\n", str);
 			be(pcNode);
 		}else if(strcmp(str,"bcs")==0){
-			printf("Entro a bcs con instr: %s\n", str);
 			bcs(pcNode);
 		}else if(strcmp(str,"bneg")==0){
-			printf("Entro a bneg con instr: %s\n", str);
 			bneg(pcNode);
 		}else if(strcmp(str,"bvs")==0){
-			printf("Entro a bvs con instr: %s\n", str);
 			bvs(pcNode);
 		}else if(strcmp(str,"ba")==0){
-			printf("Entro a ba con instr: %s\n", str);
 			ba(pcNode);
 		}else if(strcmp(str,"sethi")==0){
-			printf("Entro a sethi con instr: %s\n", str);
 			sethi(pcNode);
 		}else if(strcmp(str, ".org")==0){
-			printf("Entro a .org con instr: %s\n", str);
 			org(pcNode);
+			inst_loc-=4;
 		}else if(strcmp(str,"var")==0){
-			printf("Entro a var con instr: %s\n", str);
 			var(pcNode);
 		}else{
-			printf("Error en el reconocimiento de la instruccion: %s\n",str);
 			return -1;
 		}
 		inst_loc+=4;
